@@ -1,0 +1,36 @@
+FUNCIONALIDADES:
+
+Una página web de encuestas que sea accesible desde cualquier dispositivo que disponga de un navegador y conexión a internet.
+
+
+Un usuario registrado puede crear encuestas y responder encuestas.
+Un usuario no registrado solo puede contestar encuestas.
+Un usuario registrado puede seguir temas de diferentes encuestas.
+Las encuestas se puede constestar como anánimo o como usuario registrado.
+Un usuario no puede constestar una encuesta creada por él mismo.
+No se puede cambiar el voto de una encuesta ya contestada.
+Análisis estadístico de las encuestas: cuanta gente ha contestado, quienes, que respuestas han dado (sin cruzar usuario y respuesta)
+Una encuesta debe tener minimo una pregunta y no hay máximo.
+Los tipos de preguntas pueden ser por opciones o de texto libre (maximo de 500 caracteres)
+Se pueden marcar preguntas como obligatorias (usuarios premium).
+Usuarios premium.
+Las encuestas no son modificables ni eliminables una vez publicadas por los encuestadores
+Rol de administrador que puede vetar temas (etiquetas), puede ver métricas de todas las encuestas (este va a ser el premium)!!!
+El administrador no hace encuestas
+El usuario que quiera ser administrador tiene que rellenar un formulario en la web.
+Encuestas solo para usuarios registrados.
+
+
+Sistema de registro y logging de usuario: nombre de usuario, email, contraseña y ¿telefono?
+Cuando te registras en la plataforma te llega un codigo via ¿SMS o email? para la valdación
+El nombre de usuario tiene que ser único y editable.
+Los usuarios tienen perfiles (donde se edita el nombre, el avatar y la contraseña)
+
+
+
+TENEMOS UN AÑO PARA HACERLO
+
+QUITAR PARRAFO 2 DE LA PARTE DECIMA
+
+La duración de la prueba es 1 mes
+La garantía de 1 año
