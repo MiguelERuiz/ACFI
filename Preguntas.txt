@@ -6,3 +6,4 @@ Registro único por telefono
 Como funcionan los usuarios premium
 Usuarios premium y preguntas obligatorias
 como se entrega el software 
+El usuario que hace la solicitud de administrador, se convierte en usuario premium, una vez otorgada la solicitud?
