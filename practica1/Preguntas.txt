@@ -1,9 +1,27 @@
 DUDAS
 
-Quien crea etiquetas
-Cuanto tiempo mantenimiento
+Quién crea etiquetas
+  - El usuario que crea las encuestas
+  - A un usuario sin loguear le saldrán encuestas aleatorias que tendrán distintas etiquetas (las + populares)
+  - A un usuario que se loguea por primera vez le saldrán encuestas aleatorias que tendrán distintas etiquetas (las + populares)
+  - Se podrán seguir etiquetas, y las encuestas que le salgan serán en función de las etiquetas que siga.
+    Cuando se acaben las encuestas basadas en etiquetas (que las haya contestado todas), le saldrán encuestas aleatorias de otras etiquetas (las + populares)
 Registro único por telefono
-Como funcionan los usuarios premium
+  - Para evitar que un usuario pueda tener múltiples cuentas. Debe añadir su número del tlf y el sistema le enviará un SMS
+Cómo funcionan los usuarios premium
+  - Usuarios Premium pagan por las siguientes funcionalidades:
+      - No les aparecen anuncios en la plataforma
+      - Pueden participar en encuestas que contienen recompensas
+      - Se da de alta como premium a través de los medios de pago disponibles (visa/mastercard, paypal)
 Usuarios premium y preguntas obligatorias
-como se entrega el software 
-El usuario que hace la solicitud de administrador, se convierte en usuario premium, una vez otorgada la solicitud?
+  - En las encuestas puede haber preguntas obligatorias o voluntarias, independientemente de si el usuario es o no premium.
+Cómo se entrega el software
+  - Una aplicación web hosteada bajo el dominio mejoresencuestas.es
+
+24/09
+
+- Entregas por hitos: definir qué se espera por cada hito y definir los mismos (pendiente)
+- Mantenimiento de la aplicación: durante cuánto tiempo hay que mantenerlo (pendiente)
+- El usuario que hace la solicitud de administrador, se convierte en usuario premium, una vez otorgada la solicitud?
+- Los usuarios premium pueden darse de baja en cualquier momento??
+- Cliente paga servicio de SMS ??
