@@ -34,3 +34,13 @@ QUITAR PARRAFO 2 DE LA PARTE DECIMA
 
 La duración de la prueba es 1 mes
 La garantía de 1 año
+
+
+24/09
+
+- Revisar parte NOVENA de las ESTIPULACIONES (referente a subcontratación)
+- Añadir en la parte DECIMOSEGUNDA de las ESTIPULACIONES que la entrega del
+  software será una aplicación web totalmente operativa y hosteada bajo el
+  dominio de mejoresencuestas.es
+- Añadir en la parte DECIMOQUINTA de las ESTIPULACIONES los gastos que son
+  responsabilidad del CLIENTE (hosting, dominio, plataforma de pago)
