@@ -5,6 +5,17 @@
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
 \usepackage{enumitem} % Listas enumeradas alfabéticamente
+\usepackage{eurosym}
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definición de comandos
+\setlength{\marginparwidth}{2cm}
+\newcommand{\unsure}[2]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommand{\change}[2]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommand{\info}[2]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommand{\improvement}[2]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+\newcommand{\thiswillnotshow}[2]{\todo[disable,#1]{#2}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Empieza el documento
@@ -28,15 +39,15 @@
 
 	\subsection*{DE UNA PARTE,}
 
-	\_\_\_\_\_\_\_\_, mayor de edad, con domicilio en \_\_\_\_\_\_\_\_, DNI/NIF núm.
-	\_\_\_\_\_\_\_\_, y en su propio nombre y representación.
+	SUPERDEVS S.L, mayor de edad, con domicilio en FDI UCM, DNI/NIF núm.
+	XXXXXXXXXXX, y en su propio nombre y representación.
 
 	En adelante, el "DESARROLLADOR".
 
 	\subsection*{DE OTRA PARTE,}
 
-	\_\_\_\_\_\_\_\_, mayor de edad, con domicilio en \_\_\_\_\_\_\_\_, DNI/NIF núm.
-	\_\_\_\_\_\_\_\_, y en su propio nombre y representación.
+	MEJORESENCUESTAS.ES, mayor de edad, con domicilio en FDI UCM, DNI/NIF núm.
+	XXXXXXXXXXX, y en su propio nombre y representación.
 
 	En adelante, el "{CLIENTE}".
 
@@ -51,7 +62,7 @@
 	\begin{enumerate}[label=\roman*.]
 		\item Que el DESARROLLADOR se dedica a la siguiente actividad:
 
-			\_\_\_\_\_\_\_\_
+			CONSULTARÍA Y DESARROLLO WEB
 
 		\item Que en virtud de lo anterior, el DESARROLLADOR dispone de los
 		conocimientos y medios necesarios para el diseño y codificación de
@@ -129,6 +140,25 @@
 		\item Los usuarios no podrán modificar respuestas de una encuesta ya
 		contestada si las respuestas han sido enviadas.
 
+		\item Un usuario puede convertirse en usuario PREMIUM si hace la suscripción
+		al servicio PREMIUM de la APLICACIÓN a través de las plataformas de pago
+		disponibles en la misma.
+
+		\item Las plataformas de pago disponibles en la APLICACIÓN serán VISA/
+		MASTERCARD y Paypal.
+
+		\item Las encuestas pueden ir asociadas a promociones que los encuestadores
+		puedan crear.
+
+		\item Las encuestas asociadas a promociones solo pueden ser respondidas por
+		usuarios PREMIUM.
+
+		\item Los usuarios PREMIUM están exentos de la publicidad que pueda aparecer
+		dentro de la APLICACIÓN.
+
+		\item Un usuario PREMIUM puede darse de baja del servicio PREMIUM en cualquier
+		momento.
+
 		\item Las encuestas tendrán un mínimo de una pregunta y no tienen máximo
 		número de preguntas. Las respuestas a las encuestas serán de texto libre,
 		con un máximo de 500 carácteres, o por opciones, determinadas por el usuario
@@ -150,14 +180,16 @@
 		\item Las encuestas generarán de forma automática la siguiente información:
 			\begin{itemize}
 				\item Número de usuarios que han contestado a la encuesta
-				\item Nombre de usuario de los usarios que han contestado a la encuesta,
+				\item Nombre de usuario de los usuarios que han contestado a la encuesta,
 				si disponen de un perfil
 				\item Qué respuestas se han dado (sin posibilidad de identificar
 				a cada usuario con su respuesta)
 			\end{itemize}
 		Esta información estará disponible únicamente para los creadores de las
-		encuestas. Los usuarios administradores podrán acceder a esta información
-		para todas las encuestas.
+		encuestas, y solo podrán ser accesibles si la encuesta tiene un mínimo de
+		diez (10) respuestas. Los usuarios administradores podrán acceder
+		a esta información para todas las encuestas, independientemente del número
+		de respuestas que tenga asociada dicha encuesta.
 	\end{enumerate}
 
 	El DESARROLLADOR diseñará y codificará el Software siguiendo lo
@@ -166,12 +198,9 @@
 
 	\subsection*{TERCERA. PRECIO Y FORMA DE PAGO}
 
-	Las Partes acuerdan el pago de una cantidad ascendiente a \_\_\_\_\_\_\_\_
-	(\_\_\_\_\_\_\_\_€) como remuneración del Software, sin incluir los impuestos
-	que se pudieran derivar de esta operación.
-
-	El CLIENTE satisfará el pago del precio fijo el \_\_\_\_\_\_\_\_ mediante pago
-	en efectivo en favor del DESARROLLADOR.
+	Las Partes acuerdan el pago de una cantidad ascendiente a SETENTA MIL EUROS
+	(700000 \euro) como remuneración del Software, incluye IVA.
+	Se incluye el desglose en el apéndice \ref{apen_presu}
 
 	Por último, el DESARROLLADOR emitirá una factura al CLIENTE cumpliendo
 	con los requisitos legales necesarios y dentro de los plazos previstos
@@ -381,21 +410,19 @@
 	CONTRATO, se realizará la entrega del Software en favor del CLIENTE. La
 	entrega del Software se deberá llevar a cabo de la siguiente forma:
 
-	\_\_\_\_\_\_\_\_
+	Una página web completamente funcional, es decir, que contenga todas las
+	FUNCIONALIDADES DEL SOFTWARE descritas en la Estipulación Segunda del presente
+	CONTRATO, hosteada en un servidor bajo el dominio www.mejoresencuestas.es
 
 	Por otro lado, el CLIENTE se compromete a la recepción del Software,
 	pudiendo en todo caso expresar las reservas o incidencias que estime
 	oportunas sobre el mismo en el caso de que no satisfaga sus
 	expectativas.
 
-	Si las Partes así lo acuerdan, se podrá aprobar la entrega parcial antes
-	del vencimiento del plazo antes mencionado de partes o módulos del
-	Software que puedan funcionar de forma autónoma.
-
 	\subsection*{DÉCIMOTERCERA. PERÍODO DE PRUEBA}
 
 	Tras la entrega del Software, las Partes acuerdan un período de prueba
-	del Software de una duración: \_\_\_\_\_\_\_\_. Este plazo comenzará a contar
+	del Software de una duración de seis (6) meses. Este plazo comenzará a contar
 	desde el momento de entrega del Software en favor del CLIENTE según lo
 	establecido en la Estipulación anterior.
 
@@ -414,29 +441,33 @@
 	\subsection*{DÉCIMOCUARTA. GARANTÍA DEL SOFTWARE}
 
 	Tras la realización de la entrega del Software, y superado el periodo de
-	prueba, serán de APLICACIÓN al mismo las garantías previstas en el
-	Código Civil, así como lo dispuesto en el texto refundido de la Ley
-	General para la Defensa de Consumidores y Usuarios y en el Código de
-	Comercio en su caso.
+	prueba, las Partes acuerdan un periodo de garantía con una duración
+	de 1 (uno) año desde la entrega del Software.
 
-	En concreto, las Partes acuerdan un periodo de garantía con una duración
-	de: \_\_\_\_\_\_\_\_ desde la entrega del Software.
-
-	Por último, la garantía legal no será de APLICACIÓN en el caso de que el
+	Por último, la garantía legal no será de aplicación en el caso de que el
 	CLIENTE incumpla con su obligación de pago establecida en la
 	Estipulación tercera o decida terminar de forma anticipada este CONTRATO
 	por decisión voluntaria.
 
 	\subsection*{DÉCIMOQUINTA. GASTOS}
 
-	El DESARROLLADOR se hará cargo de todos los gastos derivados en relación
+	El CLIENTE se hará cargo de todos los gastos derivados en relación
 	con el diseño y codificación del Software. Deberá hacerse cargo del pago
 	de los medios e instrumentos necesarios para poder ejecutar el CONTRATO
 	correctamente, así como de todos los impuestos o tasas que se devenguen
-	en relación con la creación del Software, quedando el CLIENTE
+	en relación con la creación del Software, quedando el DESARROLLADOR
 	completamente indemne del pago de todos estos gastos.
 
-	DÉCIMOSEXTA. ELEVACIÓN A PÚBLICO DEL CONTRATO
+	Así pues, el DESARROLLADOR queda exento de los siguientes gastos:
+
+	\begin{enumerate}
+		\item Mantenimiento de hosting
+		\item Mantenimiento de proveedor de SMS
+		\item Mantenimiento de las pasarelas de pago
+		\item Mantenimiento de dominio
+	\end{enumerate}
+
+	\subsection*{DÉCIMOSEXTA. ELEVACIÓN A PÚBLICO DEL CONTRATO}
 
 	Cualquiera de las Partes podrá solicitar, mediante requerimiento
 	fehaciente, la elevación a público del presente CONTRATO.
@@ -445,7 +476,7 @@
 	Público ante el cual se otorgará la escritura pública y la parte
 	solicitante se hará cargo de los correspondientes gastos notariales.
 
-	\subsection*{DÉCIMOSEXTA. FUERZA MAYOR}
+	\subsection*{DÉCIMOSÉPTIMA. FUERZA MAYOR}
 
 	El retraso en el cumplimiento de cualquier obligación de las Partes no
 	será considerado una omisión o un incumplimiento del CONTRATO en el caso
@@ -469,7 +500,7 @@
 	la imposibilidad de ejecutar la obligación, las Partes podrán acordar la
 	modificación del CONTRATO o su resolución.
 
-	\subsection*{DÉCIMOSÉPTIMA. OBLIGACIÓN DE NO COMPETENCIA}
+	\subsection*{DÉCIMOCTAVA. OBLIGACIÓN DE NO COMPETENCIA}
 
 	El DESARROLLADOR se compromete a no tener o mantener, ni directa ni
 	indirectamente, intereses o a participar y desarrollar actividades,
@@ -508,7 +539,7 @@
 	relevancia para la actividad del CLIENTE que supone el respeto de lo
 	contenido en esta Estipulación.
 
-	\subsection*{DÉCIMOCTAVA. OBLIGACIÓN DE SECRETO Y CONFIDENCIALIDAD}
+	\subsection*{DÉCIMONOVENA. OBLIGACIÓN DE SECRETO Y CONFIDENCIALIDAD}
 
 	Las Partes reconocen que toda la información a la que se pueda tener
 	acceso en el marco del CONTRATO, ya sea relacionada con el Software
@@ -549,7 +580,7 @@
 	durante el siguiente período: \_\_\_\_\_\_\_\_ tras su terminación.
 	Este plazo de tiempo es inmediato a la terminación del CONTRATO.
 
-	\subsection*{DÉCIMONOVENA. INEXISTENCIA DE RENUNCIA}
+	\subsection*{VIGÉSIMA. INEXISTENCIA DE RENUNCIA}
 
 	La renuncia de una de las Partes a exigir el cumplimiento de alguna de
 	las obligaciones previstas en el CONTRATO, o a ejercer alguno de los
@@ -571,7 +602,7 @@
 	produjo, y no restringirá, en ningún caso, su exigibilidad en otros
 	supuestos del derecho al que afecta.
 
-	\subsection*{VIGÉSIMA. TERMINACIÓN ANTICIPADA DEL CONTRATO}
+	\subsection*{VIGÉSIMOPRIMERA. TERMINACIÓN ANTICIPADA DEL CONTRATO}
 
 	El presente CONTRATO podrá ser resuelto por el mutuo acuerdo de las
 	Partes, con los efectos que ellas determinen. En todo caso, la
@@ -607,7 +638,7 @@
 	obligación de confidencialidad", las "Obligaciones de no competencia" y
 	las restantes obligaciones aplicables.
 
-	\subsection*{VIGÉSIMOPRIMERA. INCUMPLIMIENTO DEL CONTRATO}
+	\subsection*{VIGÉSIMOSEGUNDA. INCUMPLIMIENTO DEL CONTRATO}
 
 	El incumplimiento por cualquiera de las Partes de las obligaciones
 	recogidas en el presente CONTRATO facultará a la otra Parte para, o bien
@@ -625,7 +656,7 @@
 	prestaciones debidas junto a la satisfacción de la correspondiente
 	indemnización.
 
-	\subsection*{VIGÉSIMOSEGUNDA. EXIGIBILIDAD}
+	\subsection*{VIGÉSIMOTERCERA. EXIGIBILIDAD}
 
 	La falta por cualquier Parte de la exigencia del cumplimiento de
 	cualquiera de las obligaciones recogidas en el presente CONTRATO no
@@ -634,7 +665,7 @@
 	interpretarse ni como una renuncia a denunciar cualquier incumplimiento
 	posterior de dicha estipulación, ni como una renuncia de la misma.
 
-	\subsection*{VIGÉSIMOTERCERA. INTEGRIDAD DEL CONTRATO}
+	\subsection*{VIGÉSIMOCUARTA. INTEGRIDAD DEL CONTRATO}
 
 	Las Partes reconocen que todos los documentos Anexos y/o adjuntados al
 	presente CONTRATO forman parte integrante del mismo a todos los efectos,
@@ -648,4 +679,20 @@
 	tantas copias originales como Partes participen en el CONTRATO, constituyendo
 	todas esas copias un único acuerdo, en el lugar y fechas indicados en el
 	encabezamiento.
+
+	\newpage
+	\section*{Apéndice 1: Presupuesto}\label{apen_presu}
+    El presupuesto de SETENTA MIL EUROS (70000\euro) se divide en los siguientes gastos.
+    \begin{itemize}
+        \item 2 programadores junior: 14.000 \euro
+        \item 1 programador senior: 11.360 \euro
+        \item 1 analista senior: 4.680 \euro
+        \item 1 administrador de bases de datos: 8.640 \euro
+        \item 1 QA: 1.260 \euro
+        \item Presupuesto base: 21.697,8 \euro
+    \end{itemize}
+    TOTAL + IVA = 70.000 \euro
+	\section*{Apéndice 2: Contrato de mantenimiento del software}
+    Se acuerda por ambas partes\change{}{ACABAR ESTA PARTE}
+
 \end{document}
