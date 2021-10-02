@@ -1,39 +1,58 @@
 \documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definicion de paquetes
 \usepackage[left=2cm,top=2.5cm,right=2cm,bottom=2.5cm]{geometry}
+\usepackage{xargs} % Use more than one optional parameter in a new commands
+\usepackage[pdftex,dvipsnames]{xcolor}  % Coloured text etc.
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definición de comandos
+\setlength{\marginparwidth}{2cm}
+\newcommand{\unsure}[2]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommand{\change}[2]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommand{\info}[2]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommand{\improvement}[2]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+\newcommand{\thiswillnotshow}[2]{\todo[disable,#1]{#2}}
 
 \title{Propuesta recibida}
 \author{Superequipo}
 \date{}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Empieza el documento
 \begin{document}
 	\maketitle
+    \improvement{}{MR: Poner nuestros nombres como autores}
 	\begin{itemize}
         \item Portal de encuestas: (Pagina web)
         \begin{itemize}
             \item Accesible (desde cualquier dispositivo)
             \item Interactivo (web bonita)
-            \item Poder responder dudas de cualquier tema (formular y contestar preguntas)
+            \item Poder responder dudas de cualquier tema (formular y contestar
+            preguntas)
         \end{itemize}
         \item Opción de estar logeado:
         \begin{itemize}
-            \item Registro de encuentas según topics
+            \item Registro de encuestas según topics
             \item Elaborar encuestas
             \item Contestar encuestas
             \item Puede haber encuestas exclusivas para logeados
-            \item Servicio de recompensas: encuestador puede dar propinas (Ejemplo: los 10 primeros en responder tienen premio)
+            \item Servicio de recompensas: encuestador puede dar propinas
+            (Ejemplo: los 10 primeros en responder tienen premio)
         \end{itemize}
         \item Opcion no logeado:
         \begin{itemize}
             \item Puede contestar encuestas de manera anónima
         \end{itemize}
-        \item Télefono,usuario y contraseña (editable)
+        \item Teléfono,usuario y contraseña (editable)
         \item Avatar (editable)
-        \item Evitar que la gente tenga muchas cuentas para favorecer sus propias encuestas (validar télefono con sms)
+        \item Evitar que la gente tenga muchas cuentas para favorecer sus
+        propias encuestas (validar teléfono con sms)
         \item Un encuestador no puede responder su propia encuesta
         \item No se puede cambiar el voto de una encuesta
-        \item El encuestador puede ver métricas de la encuesta.
+        \item El encuestador puede ver métricas de la encuesta
+        (mínimo 10 respuestas para poder verlas)
         \item Una encuesta solo se puede configurar en la creación.
         \item Rol administrador:
         \begin{itemize}
@@ -45,10 +64,12 @@
         \item Usuario premium:
         \begin{itemize}
             \item No ve anuncios
-            \item Se puede hacer premium a través de plataforma de pago (visa, mastercard, paypal)
+            \item Se puede hacer premium a través de plataforma de pago
+            (visa, mastercard, paypal)
             \item puede darse de baja en cualquier momento
             \item puede contestar encuestas que tienen premios/recompensas
         \end{itemize}
-        \item Todas las funcionalidades tienen que estar implementadas en el plazo de un año
+        \item Todas las funcionalidades tienen que estar implementadas en el
+        plazo de un año
 	\end{itemize}
 \end{document}
