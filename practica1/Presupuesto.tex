@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{xargs}                      % Use more than one optional parameter in a new commands
+\usepackage[pdftex,dvipsnames]{xcolor}  % Coloured text etc.
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\usepackage{eurosym}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definición de comandos
+
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Definición de portada
+\title{Presupuesto2}
+\author{amaliare }
+\date{October 2021}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Empieza el documento
+
+\begin{document}
+\unsure{MR: No estoy seguro de que esté bien calculado. Revisar}{}
+\begin{table}[]
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multicolumn{1}{|c|}{\textit{\textbf{Perfil}}} & \multicolumn{1}{c|}{\textit{\textbf{Precio/hora}}} & \multicolumn{1}{c|}{\textit{\textbf{\begin{tabular}[c]{@{}c@{}}Número de \\ horas\end{tabular}}}} & \multicolumn{1}{c|}{\textit{\textbf{Gastos}}} \\ \hline
+Programador Senior                             & 21 \euro                                           & 60                                                                                                & 11.340 \euro                                   \\ \hline
+Programador Junior                             & 8 \euro                                            & 150                                                                                               & 14.000 \euro                                   \\ \hline
+Analista                                       & 26 \euro                                           & 60                                                                                                & 4.680 \euro                                    \\ \hline
+DBA                                            & 24 \euro                                           & 60                                                                                                & 8.640 \euro                                    \\ \hline
+QA                                             & 7 \euro                                            & 30                                                                                                & 1.260 \euro                                    \\ \hline
+Presupuesto base                               &                                                    &                                                                                                   & 21.697,8 \euro                                 \\ \hline
+\textbf{TOTAL + IVA:}                          &                                                    &                                                                                                   & 70.000 \euro                                   \\ \hline
+\end{tabular}
+\caption{Desglose de presupuesto}
+\end{table}
+
+\end{document}
