@@ -1,33 +1,63 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definicion de paquetes
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{xargs}                      % Use more than one optional parameter in a new commands
+\usepackage[pdftex,dvipsnames]{xcolor}  % Coloured text etc.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definición de comandos
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definición de portada
 \title{DescripcionTrabajo}
 \author{amaliare }
 \date{October 2021}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Empieza el documento
 \begin{document}
+\improvement{MR: añadir portada, cambiar titulos y autores, poner fecha}
+\section*{Descripcion Trabajo ACFI}
 
-\section*{Descripcion Trabajo ACFI} 
+En primer lugar, todos los integrantes del grupo discutimos qué aplicación
+queríamos y qué funcionalidades iba a tener. Una vez decididos todos los
+requisitos de la aplicación, Amalia y Sara actuaron como cliente y,
+Sergio, Miguel y José Luis como desarrolladores.
 
-Al principio todos los integrantes discutimos que aplicación queríamos y como la queríamos. Una vez decidido todos los puntos de la aplicación Amalia y Sara actuaron como cliente y Sergio, Miguel y José Luis como desarrolladores. 
+En su rol de cliente, Amalia y Sara les explicaron a los desarrolladores del
+otro equipo la idea que habíamos tenido y sin entrar en detalles de
+la implementación que se requería. Al mismo tiempo Sergio, Miguel y José Luis
+en su rol de desarrollador, escucharon y entendieron lo que nuestro cliente
+querían como producto.
 
-Como clientes Sara y Amalia le explicaron a los desarrolladores la idea que habíamos tenido y sin entrar en detalles de implementación como la queríamos.
+Posteriormente, elaboramos un plan para repartirnos las tareas basándonos en las
+piezas que más trabajo requerían y nos dividimos en dos grupos en dos fases: en
+la primera fase, se realizó el Diagrama de Gantt por parte de José Luis, Sara
+y Amalia, mientras que Sergio y Miguel elaboraron la matriz de riegos.
+Tras acabar dicha fase, Sergio, Amalia y Sara calcularon el presupuesto, al
+mismo tiempo que José Luis y Miguel revisaron que en  el borrador del contrato
+se especificaban todas las especificaciones que el cliente nos había demandado.
 
-Al mismo tiempo Jose Luis, Sergio y Miguel en su papel de desarrollador escucharon y entendieron lo que nuestros cliente querían.
+Por otro lado, recibimos el contrato del equipo que se encargaba de realizarlo.
+Tras haber sido leído por todos los miembros del equipo, informamos al equipo de
+los puntos que estábamos en desacuerdo o que creíamos que había que matizar.
+Cuando se lo comunicamos, nos explicaron ciertos apartados y otros fueron
+corregidos para reflejar lo que queríamos.
 
-Posteriormente, a partir de un guión desarrollamos el contrato lo cinco juntos, para las partes en las que se necesitaba mas detalle como el tiempo o el presupuesto nos dividimos.
+\improvement{MR: Esta parte no la termino de ver.}
 
-El diagrama de Gantt fue hecho por José Luis, Sara y Amalia. Mientras Sergio y Miguel hacían la matriz de riegos.
-
-Después, Sergio, Amalia y Sara hicieron el presupuesto.
-
-Ya con todo el material, se terminó de maquetar el contrato y fue enviado.Cuando recibimos la respuesta del cliente hicimos las ultimas correcciones del proyecto y que finalmente fue firmado por el cliente.
-
-Por otro lado, recibimos el contrato de nuestros desarrolladores lo leímos y entre todos decidimos los puntos que no nos gustaban o que creíamos que había que matizar. Cuando se lo comunicamos, nos explicaron ciertos apartado y otros fueron corregidos para reflejar lo que queríamos.
-
-
-
-
-
+Finalmente, ya con todo el material, se terminó de maquetar el contrato y fue enviado.
+Cuando recibimos la respuesta del cliente hicimos las últimas correcciones del
+proyecto, que finalmente fue firmado por el cliente.
 
 \end{document}
