@@ -1,14 +1,32 @@
-\documentclass{article}
+\documentclass{report}
 \usepackage[left=2cm,top=2.5cm,right=2cm,bottom=2.5cm]{geometry}
 
 
-\title{Aplicación fantasía}
-\author{Superequipo}
-\date{}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{enumitem} % Listas enumeradas alfabéticamente
+\usepackage{eurosym}
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+
 
 
 \begin{document}
+    \title{Aplicación fantasía}
+	\author{
+		Sergio García Sánchez
+		\and
+		Sara Juberías Campos
+		\and
+		José Luis Mela Navarro
+		\and
+		Amalia Regueira Fernández
+		\and
+		Miguel Emilio Ruiz Nieto
+	}
+
 	\maketitle
+	\section*{Aplicación Fantasía}
 	\begin{itemize}
 		\item Aplicación web para retransmitir conciertos y vender entradas (físicas y online)
 		\item Aplicación para la tele y para el móvil

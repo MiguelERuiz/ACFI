@@ -1,0 +1,761 @@
+\documentclass[a4paper,11pt]{report}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definicion de paquetes
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{enumitem} % Listas enumeradas alfabéticamente
+\usepackage{eurosym}
+\usepackage{soul}% for the underlining 
+\usepackage[doublespacing]{setspace}% just to set the samples further apart
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definición de comandos
+\setlength{\marginparwidth}{2cm}
+\newcommand{\unsure}[2]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommand{\change}[2]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommand{\info}[2]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommand{\improvement}[2]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+\newcommand{\thiswillnotshow}[2]{\todo[disable,#1]{#2}}
+\newcommand*{\SignatureAndDate}[1]{%
+    \par\noindent\makebox[2.5in]{\hrulefill} %\hfill\makebox[2.0in]{\hrulefill}%
+    \par\noindent\makebox[2.5in][l]{#1}      %\hfill\makebox[2.0in][l]{Date}%
+}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Empieza el documento
+\begin{document}
+	\title{CONTRATO DE DESARROLLO SOFTWARE}
+	\author{
+		Sergio García Sánchez
+		\and
+		Sara Juberías Campos
+		\and
+		José Luis Mela Navarro
+		\and
+		Amalia Regueira Fernández
+		\and
+		Miguel Emilio Ruiz Nieto
+	}
+
+	\maketitle
+
+	\section*{REUNIDOS}
+
+	\subsection*{DE UNA PARTE,}
+
+	SUPERDEVS S.L, mayor de edad, con domicilio en FDI UCM, DNI/NIF núm.
+	1111111111, y en su propio nombre y representación.
+
+	En adelante, el "DESARROLLADOR".
+
+	\subsection*{DE OTRA PARTE,}
+
+	MEJORESENCUESTAS.ES, mayor de edad, con domicilio en FDI UCM, DNI/NIF núm.
+	2222222222, y en su propio nombre y representación.
+
+	En adelante, el "{CLIENTE}".
+
+	El DESARROLLADOR y el CLIENTE que, en adelante, podrán ser denominados,
+	individualmente, la "PARTE" y conjuntamente, las "PARTES",
+	reconociéndose mutuamente la capacidad jurídica necesaria para contratar
+	y obligarse, y en especial, para el otorgamiento del presente CONTRATO
+	DE DESARROLLO DE SOFTWARE. En adelante, el "{CONTRATO}".
+
+	\section*{EXPONEN}
+
+	\begin{enumerate}[label=\roman*.]
+		\item Que el DESARROLLADOR se dedica a la siguiente actividad:
+
+			CONSULTARÍA Y DESARROLLO WEB
+
+		\item Que en virtud de lo anterior, el DESARROLLADOR dispone de los
+		conocimientos y medios necesarios para el diseño y codificación de
+		programas informáticos o aplicaciones;
+
+		\item Que el CLIENTE desea el desarrollo de un programa informático (en
+		adelante, el "SOFTWARE"), con una serie de características y
+		funcionalidades determinadas que han sido comunicadas al DESARROLLADOR;
+
+		\item Que, con el fin de desarrollar el Software de acuerdo con las
+		especificidades y funcionalidades solicitadas por el CLIENTE, las Partes
+		han negociado y aceptado un presupuesto y un plan de trabajo para el
+		desarrollo del Software;
+
+		\item Que, en virtud de lo anterior, el DESARROLLADOR desea, libre y
+		espontáneamente, comprometerse a diseñar, estructurar y codificar el
+		Software atendiendo a las instrucciones del CLIENTE, operación que las
+		Partes desean formalizar a través del presente CONTRATO, que se regirá
+		por las siguientes,
+	\end{enumerate}
+
+	\section*{ESTIPULACIONES}
+
+	\subsection*{PRIMERA. OBJETO DEL CONTRATO}
+
+	Mediante el presente CONTRATO, el DESARROLLADOR se compromete a diseñar,
+	estructurar y codificar el Software en favor del CLIENTE dentro del
+	plazo fijado en el presente CONTRATO.
+
+	De esta forma, el DESARROLLADOR creará un Software personalizado según
+	el presupuesto o los documentos técnicos negociados entre las Partes de
+	forma previa a la firma del presente CONTRATO, cuya titularidad
+	corresponderá en su integridad al CLIENTE.
+
+	Por último, el diseño, la estructuración y codificación del Software se
+	ceñirá a lo establecido en las estipulaciones de este CONTRATO.
+
+	\subsection*{SEGUNDA. FUNCIONALIDADES DEL SOFTWARE}
+
+	Siguiendo las peticiones del CLIENTE, y de acuerdo con la negociación
+	previa llevada a cabo entre las Partes, el DESARROLLADOR queda obligado
+	a diseñar y codificar el Software cumpliendo con las siguientes
+	funcionalidades o características:
+	\begin{enumerate}
+		\item Aplicación web, en adelante "{APLICACIÓN}", destinada a la realización
+		de encuestas. Dicha APLICACIÓN debe ser accesible desde cualquier
+		dispositivo móvil que disponga de un navegador web y acceso a Internet.
+		\item La APLICACIÓN dispondrá de un sistema de registro de usuarios y logging
+		de los mismos. El registro incluirá:
+			\begin{itemize}
+				\item Nombre de usuario
+				\item Dirección email
+				\item Contraseña
+				\item Teléfono móvil
+			\end{itemize}
+		\item Para validar el registro de un usuario se enviará de manera automática
+		un SMS al teléfono proporcionado por el mismo. Esta validación se
+		realizará vía SMS para intentar la limitación a una sola cuenta
+		por persona física.
+
+		\item El nombre del usuario será único y editable desde la APLICACIÓN.
+		Los usuarios registrados dispondrán de un perfil, donde podrá editar el
+		nombre, el avatar y la contraseña de los mismos.
+
+		\item Los usuarios no registrados solamente podrán contestar encuestas.
+
+		\item Los usuarios registrados podrán contestar y crear encuestas. Los
+		usuarios registrados podrán seguir temas de encuestas.
+
+		\item Los usuarios podrán contestar encuestas de manera anónima o
+		como usuarios registrados.
+
+		\item Los usuarios no podrán contestar encuestas creadas por ellos mismos.
+
+		\item Los usuarios no podrán modificar respuestas de una encuesta ya
+		contestada si las respuestas han sido enviadas.
+
+		\item Un usuario puede convertirse en usuario PREMIUM si hace la suscripción
+		al servicio PREMIUM de la APLICACIÓN a través de las plataformas de pago
+		disponibles en la misma.
+
+		\item Las plataformas de pago disponibles en la APLICACIÓN serán VISA/
+		MASTERCARD y Paypal.
+
+		\item Las encuestas pueden ir asociadas a promociones que los encuestadores
+		puedan crear.
+
+		\item Las encuestas asociadas a promociones solo pueden ser respondidas por
+		usuarios PREMIUM.
+
+		\item Los usuarios PREMIUM están exentos de la publicidad que pueda aparecer
+		dentro de la APLICACIÓN.
+
+		\item Un usuario PREMIUM puede darse de baja del servicio PREMIUM en cualquier
+		momento.
+
+		\item Las encuestas tendrán un mínimo de una pregunta y no tienen máximo
+		número de preguntas. Las respuestas a las encuestas serán de texto libre,
+		con un máximo de 500 carácteres, o por opciones, determinadas por el usuario
+		creador de la misma.
+
+		\item Las encuestas no son modificables ni eliminables una vez publicadas
+		por los encuestadores.
+
+        \item Los usuarios podrán ser marcados como administrador bajo criterio del
+        CLIENTE a través de la interfaz dedicada a tal funcionalidad.
+
+		\item El usuario administrador que puede vetar temas y puede ver métricas
+		de todas las encuestas. El administrador no hace encuestas.
+
+		\item Los usuarios registrados podrán crear encuestas que solo puedan
+		contestar usuarios registrados.
+
+		\item Las encuestas generarán de forma automática la siguiente información:
+			\begin{itemize}
+				\item Número de usuarios que han contestado a la encuesta
+				\item Nombre de usuario de los usuarios que han contestado a la encuesta,
+				si disponen de un perfil
+				\item Qué respuestas se han dado (sin posibilidad de identificar
+				a cada usuario con su respuesta)
+			\end{itemize}
+		Esta información estará disponible únicamente para los creadores de las
+		encuestas, y solo podrán ser accesibles si la encuesta tiene un mínimo de
+		diez (10) respuestas. Los usuarios administradores podrán acceder
+		a esta información para todas las encuestas, independientemente del número
+		de respuestas que tenga asociada dicha encuesta.
+	\end{enumerate}
+
+	El DESARROLLADOR diseñará y codificará el Software siguiendo lo
+	establecido en esta Estipulación, así como lo recogido en el propio
+	CONTRATO y en todos sus Anexos.
+
+	\subsection*{TERCERA. PRECIO Y FORMA DE PAGO}
+
+	Las Partes acuerdan el pago de una cantidad ascendiente a SETENTA MIL EUROS
+	(70000 \euro) como remuneración del Software, incluye IVA.
+	Se incluye el desglose en el Apéndice 1. 
+
+	Por último, el DESARROLLADOR emitirá una factura al CLIENTE cumpliendo
+	con los requisitos legales necesarios y dentro de los plazos previstos
+	en la legislación actual. 
+	\\
+	El CLIENTE deberá abonar la cantidad de VEINTE MIL EUROS (20.000\euro)  mediante transferencia bancaria en el plazo de 1 mes tras la emisión de la factura y firma del CONTRATO. Los CINCUENTA MIL EUROS (50.000\euro)  restantes serán abonados por el CLIENTE bajo el siguiente criterio:
+	% en un plazo de 15 días tras la reunión de control.
+	
+	\begin{itemize}
+	    \item Tras la reunión de control fijada en el plazo de seis (6) meses después de la
+	    firma del contrato, si el CLIENTE da por buena dicha reunión, deberá abonar la
+	    cantidad de VEINTE MIL EUROS (20.0000\euro) en concepto de segundo pago mediante
+	    transferencia bancaria en el plazo de quince (15) días laborales tras la celebración
+	    de dicha reunión. En caso contrario, el CLIENTE podrá dar por cancelado el presente
+	    CONTRATO y abonará la cantidad de VEINTINUEVE MIL EUROS (29.000\euro), habiendo sido
+	    pagado el setenta por ciento (70\%) de lo presupuestado en la presente ESTIPULACIÓN.
+	    
+	    \item Un pago final a condición del resultado del informe de auditoría demandado
+	    por el CLIENTE al finalizar la entrega del PROYECTO:
+	        \begin{itemize}
+	            \item Si dicho informe es considerado como "favorable" por parte del CLIENTE, se deberá abonar los TREINTA MIL EUROS (30.000\euro) restantes
+	            de lo presupuestado en la presente ESTIPULACIÓN.
+	            \item Si dicho informe es considerado como "desfavorable" por parte del CLIENTE, se deberá abonar los NUEVE MIL EUROS (9.000\euro) restantes
+	            de lo presupuestado en la presente ESTIPULACIÓN.
+	            \item Si dicho informe es considerado como "muy desfavorable" por parte del CLIENTE, quedará exento de pagar la cantidad que quede restante,
+	            procediéndose a la rescisión del presente CONTRATO. 
+	        \end{itemize}
+	\end{itemize}
+
+	\subsection*{CUARTA. INTERESES DE DEMORA}
+
+	Cualquier	retraso en el pago de la remuneración establecida en el presente
+	CONTRATO dará lugar a un incremento del precio equivalente a los
+	intereses de demora generados por el retraso en el pago.
+
+	El tipo de interés de demora será igual al tipo de interés de referencia
+	o de refinanciación semestral del Banco Central Europeo en vigor a 1 de
+	enero para el primer semestre del año correspondiente, y a 1 de julio
+	para el segundo semestre del año correspondiente.
+
+	Los intereses de demora serán exigibles automáticamente a partir de la
+	fecha de pago fijada en la Estipulación anterior, sin necesidad alguna
+	de aviso del vencimiento ni intimación alguna por parte del
+	DESARROLLADOR. El devengo de dichos intereses no afectará al ejercicio
+	de cualquier acción que pueda corresponderle al DESARROLLADOR derivada
+	del incumplimiento del pago.
+
+	\subsection*{QUINTA. ORIGINALIDAD DEL SOFTWARE}
+
+	El DESARROLLADOR manifiesta de forma expresa que el Software será
+	íntegramente diseñado y codificado por el DESARROLLADOR, por su personal
+	cualificado, o por colaboradores en línea con lo dispuesto en este
+	CONTRATO, respetando, en su integridad, la legislación sobre la
+	propiedad intelectual aplicable.
+
+	En virtud de lo anterior, el DESARROLLADOR manifiesta que no utilizará
+	ningún código u cualquier otro tipo de propiedad intelectual de terceros
+	distintos a los citados en el párrafo anterior, ya sea un código fuente
+	o un código de carácter complementario, para el desarrollo del Software.
+	El Software será totalmente codificado de forma original por el
+	DESARROLLADOR y sus colaboradores, en su caso.
+
+	Siguiendo estas manifestaciones, el DESARROLLADOR se compromete a:
+
+	\begin{enumerate}[label=\Alph*)]
+		\item Exonerar al CLIENTE de toda responsabilidad frente a terceros que
+		aleguen una violación de sus derechos de propiedad intelectual que
+		puedan tener sobre el Software.
+
+		\item Garantizar el uso del Software, debiendo indemnizar al CLIENTE en el
+		caso de que por resolución judicial se impida su uso por causas o
+		motivos generados con anterioridad a la entrega del Software en favor
+		del CLIENTE.
+
+		Además, las Partes acuerdan que por razones de equidad, y en la medida
+		que lo justifiquen las circunstancias, el CLIENTE podrá reclamar la
+		restitución de las sumas pagadas o gastos derivados del CONTRATO hasta
+		la fecha en la que tiene lugar el pronunciamiento judicial en favor de
+		un tercero o en la que se produce la cancelación o denegación de la
+		inscripción del Software en el registro de la propiedad intelectual
+		correspondiente.
+
+		\item Mantener informado al CLIENTE de todos los posibles usos fraudulentos
+		o violaciones del Software que hayan podido realizar terceros durante el
+		desarrollo del Software, comprometiéndose a adoptar todas las medidas
+		necesarias para garantizar su protección y permitir el correcto uso del
+		Software.
+
+		\item Garantizar que, en caso de ser necesario, el CLIENTE cuenta con el
+		consentimiento de todos DESARROLLADORes, incluidos sus posibles
+		colaboradores, para la cesión de su posible propiedad sobre el Software
+		en favor del CLIENTE, recayendo bajo su responsabilidad los perjuicios
+		que se puedan derivar de la ausencia del mismo.
+
+	\end{enumerate}
+
+	\subsection*{SEXTA. PLAZO DE EJECUCIÓN}
+
+	El CONTRATO entrará en vigor en la fecha señalada en el encabezado del
+	presente CONTRATO. El DESARROLLADOR deberá llevar a cabo el diseño y
+	codificación del Software siguiendo los plazos establecidos a
+	continuación:
+
+	- En un año tras la firma del contrato, se deberá completar lo siguiente:
+
+	Entrega de una aplicación web totalmente funcional, en base a los requisitos detallados en la estipulación segunda del presente contrato, hosteada y bajo el dominio de https://www.mejoresencuestas.es
+    \\
+    
+    Se establece también que a los 6 meses de la firma del presente contrato se llevará a cabo una reunión de control por ambas PARTES con el objetivo de que el CLIENTE conozca el estado de la APLICACIÓN.
+    \\
+    
+	En todo caso, el CLIENTE se compromete a colaborar y a aportar toda la
+	información necesaria que le sea requerida por el DESARROLLADOR para
+	poder codificar el Software de acuerdo a los plazos establecidos en esta
+	Estipulación. En el caso de que el CLIENTE no facilite esta información
+	o no preste su colaboración de forma adecuada, el DESARROLLADOR podrá
+	comunicar por escrito al CLIENTE su imposibilidad de cumplir con los
+	plazos establecidos en esta Estipulación.
+
+	\subsection*{SÉPTIMA. MODIFICACIÓN DEL SOFTWARE}
+
+	El CLIENTE podrá solicitar al DESARROLLADOR la introducción de cambios,
+	modificaciones o mejoras en el Software durante su desarrollo y antes,
+	en todo caso, de su finalización.
+
+	Estos cambios se acordarán por escrito y serán adoptados por el
+	DESARROLLADOR, debiéndose en todo caso negociar los nuevos plazos de
+	entrega y el precio según las modificaciones solicitadas.
+
+	\subsection*{OCTAVA. PROPIEDAD DEL SOFTWARE}
+
+	El DESARROLLADOR reconoce de forma expresa que el CLIENTE será el
+	titular de pleno dominio de la propiedad intelectual del Software. De
+	esta forma, el DESARROLLADOR renuncia, expresa y totalmente, a cuantos
+	derechos de propiedad intelectual pudieran generarse como consecuencia
+	del desarrollo del Software.
+
+	En consecuencia, el DESARROLLADOR se obliga a no hacer uso de estos
+	derechos para fines distintos a los del cumplimiento del CONTRATO. El
+	resultado de los trabajos realizados, en su totalidad o en cualquiera de
+	sus fases, será propiedad del CLIENTE y este, en consecuencia, podrá
+	solicitar en cualquier momento la entrega de los documentos o materiales
+	que la integren, con todos sus antecedentes, borradores, datos o
+	procedimientos.
+
+	No obstante, la cesión de los derechos de explotación de software o
+	programas informáticos preexistentes de propiedad del DESARROLLADOR que
+	el CLIENTE estuviera interesado en incorporar como parte del futuro
+	Software serían negociados expresamente, y caso por caso, entre el
+	DESARROLLADOR y el CLIENTE. El DESARROLLADOR informaría previamente al
+	CLIENTE de forma clara y concisa sobre las condiciones de adquisición
+	y/o explotación, para que éste pueda decidir libremente sobre los
+	mismos.
+
+	El CLIENTE podrá libremente decidir llevar a cabo la inscripción del
+	Software o no en el Registro de la Propiedad Intelectual
+	correspondiente, así como realizar todas las renovaciones de dicha
+	inscripción que se considere necesarias.
+
+	La cesión de los derechos de propiedad intelectual en favor del CLIENTE
+	prevista en el presente CONTRATO no tiene ámbito geográfico determinado;
+	es decir, se extiende a todos los países del mundo sin limitación
+	geográfica de ninguna clase.
+
+	Por último, el DESARROLLADOR no mantendrá derecho de propiedad alguno,
+	ni tendrá ningún derecho de compensación más allá de lo establecido en
+	este CONTRATO, sobre todas aquellas partes del Software o de sus módulos
+	desarrollados.
+
+	\subsection*{NOVENA. CESIÓN DEL CONTRATO. SUBCONTRATACIÓN}
+
+	Las Partes no podrán ceder su posición en el presente CONTRATO, ni
+	tampoco los derechos u obligaciones que de este mismo emanasen a su
+	favor o a su cargo, sin el consentimiento previo, expreso y por escrito
+	de la otra Parte.
+
+	En particular esta Estipulación regirá de forma que el DESARROLLADOR se
+	compromete a comunicar al CLIENTE por escrito, y de forma previa a la
+	celebración de un acuerdo de subcontratación, su intención de contratar
+	a una parte subcontratista o colaboradora, la identidad de la misma, el
+	tipo de servicios y trabajos a realizar por esta en referencia al
+	Software y las condiciones económicas y legales, de la relación de
+	subcontatación. Todo ello en orden de facilitar que el CLIENTE pueda
+	aprobar dicha subcontratación, sin que dicha autorización suponga la
+	asunción de responsabilidad alguna por parte del CLIENTE o la aprobación
+	del resultado de los servicios y trabajos que la parte subcontatista o
+	colaboradora provea.
+
+	Igualmente, será responsabilidad del DESARROLLADOR comprobar que la
+	parte subcontratista está autorizada para la prestación de los servicios
+	o actividades objeto de subcontratación, así como regular por escrito la
+	relación contractual con la misma, incorporando o anexando los acuerdos
+	establecidos en el presente CONTRATO. Además, el DESARROLLADOR se obliga
+	a entregar al CLIENTE una copia de dicho CONTRATO en los cinco (5) días
+	siguientes a su firma.
+
+	La parte subcontratista actuará en todo momento bajo la dirección y
+	control del DESARROLLADOR, quien se obliga y responsabiliza de hacer
+	cumplir todas las obligaciones asumidas en el presente CONTRATO.
+
+	El DESARROLLADOR responderá solidariamente de las obligaciones que asuma
+	la parte subcontratista, incluso cuando el CLIENTE hubiera autorizado
+	dicha subcontratación, incluyendo los daños y perjuicios que pudiese
+	sufrir directa o indirectamente por la actuación de dicha parte
+	subcontratista. Del mismo modo, cualquier acto, error o negligencia en
+	el cumplimiento de las obligaciones laborales o de Seguridad Social de
+	la parte subcontratista, de sus representantes, o trabajadores, no
+	serán, en ningún caso, responsabilidad del CLIENTE.
+
+	El incumplimiento de esta Estipulación por el DESARROLLADOR será motivo
+	suficiente para resolver el presente CONTRATO.
+
+	\subsection*{DÉCIMA. INEXISTENCIA DE RELACIÓN LABORAL}
+
+	Las Partes declaran de forma expresa que, a todos los efectos legales,
+	el DESARROLLADOR desempeña su actividad de forma totalmente
+	independiente, siguiendo su propia organización y con sus medios
+	personales y técnicos.
+
+	En virtud de lo anterior, no será de aplicación la normativa laboral ni
+	cabrá la posibilidad por ninguna de las Partes de establecer reclamación
+	alguna en esta materia.
+
+	\subsection*{DÉCIMOPRIMERA. CUMPLIMIENTO NORMATIVA APLICABLE}
+
+	El DESARROLLADOR se compromete a desarrollar el Software cumpliendo de
+	forma diligente con toda la normativa aplicable y, en particular, con
+	todas las obligaciones laborales, de la Seguridad Social, fiscales y de
+	protección de datos que le sean aplicables en relación con el desarrollo
+	del Software.
+
+	\subsection*{DÉCIMOSEGUNDA. ENTREGA DEL SOFTWARE}
+
+	Una vez cumplido el plazo fijado en la Estipulación Sexta del presente
+	CONTRATO, se realizará la entrega del Software en favor del CLIENTE. La
+	entrega del Software se deberá llevar a cabo de la siguiente forma:
+
+    \begin{itemize}
+        \item Una página web completamente funcional, es decir, que contenga todas las
+	FUNCIONALIDADES DEL SOFTWARE descritas en la Estipulación Segunda del presente
+	CONTRATO, hosteada en un servidor bajo el dominio https://www.mejoresencuestas.es
+	    \item Un manual de instrucciones en formato PDF con la descripción de todos
+	    los componentes, servicios y arquitecturas implementadas en el desarrollo
+	    del SOFTWARE.
+    \end{itemize}
+    
+    Tras la entrega de la APLICACIÓN  se llevará a cabo una auditoría externa realizada por una empresa acordada por ambas partes 2 meses antes de la entrega final de la APLICACIÓN. El CLIENTE correrá con todos los gastos derivados de esta auditoria. Si el informe de la misma es MUY DESFAVORABLE, el DESARROLLADOR se compremete a devolver el 30\% del presupuesto final de SETENTA MIL EUROS (70.000 \euro) detallado en la estipulación tercera en un plazo de un mes tras la entrega del informe de la auditoría.
+    \\
+	Por otro lado, el CLIENTE se compromete a la recepción del Software,
+	pudiendo en todo caso expresar las reservas o incidencias que estime
+	oportunas sobre el mismo en el caso de que no satisfaga sus
+	expectativas.
+
+	\subsection*{DÉCIMOTERCERA. PERÍODO DE PRUEBA}
+
+	Tras la entrega del Software, las Partes acuerdan un período de prueba
+	del Software de una duración de seis (6) meses. Este plazo comenzará a contar
+	desde el momento de entrega del Software en favor del CLIENTE según lo
+	establecido en la Estipulación anterior.
+
+	Durante este período de prueba, el CLIENTE llevará a cabo todos los
+	tests o pruebas que sean necesarios a fin de detectar todos los posibles
+	errores o fallos técnicos del código, así como de garantizar la correcta
+	adaptación del Software a los sistemas informáticos del CLIENTE. El
+	CLIENTE comunicará al DESARROLLADOR todos los posibles fallos técnicos
+	detectados con el fin de permitir su reparación.
+
+	Una vez depurados y solventados todos estos errores o fallos técnicos, o
+	superado el plazo indicado sin que el CLIENTE manifieste la existencia
+	de fallo alguno, se entenderá por realizada la entrega del Software a
+	todos los efectos.
+
+	\subsection*{DÉCIMOCUARTA. GARANTÍA DEL SOFTWARE}
+
+	Tras la realización de la entrega del Software, y superado el periodo de
+	prueba, las Partes acuerdan un periodo de garantía con una duración
+	de 1 (uno) año desde la entrega del Software.
+
+	Por último, la garantía legal no será de aplicación en el caso de que el
+	CLIENTE incumpla con su obligación de pago establecida en la
+	Estipulación tercera o decida terminar de forma anticipada este CONTRATO
+	por decisión voluntaria.
+
+	\subsection*{DÉCIMOQUINTA. GASTOS}
+
+	El CLIENTE se hará cargo de todos los gastos derivados en relación
+	con el diseño y codificación del Software. Deberá hacerse cargo del pago
+	de los medios e instrumentos necesarios para poder ejecutar el CONTRATO
+	correctamente, así como de todos los impuestos o tasas que se devenguen
+	en relación con la creación del Software, quedando el DESARROLLADOR
+	completamente indemne del pago de todos estos gastos.
+
+	Así pues, el DESARROLLADOR queda exento de los siguientes gastos:
+
+	\begin{enumerate}
+		\item Mantenimiento de hosting
+		\item Mantenimiento de proveedor de SMS
+		\item Mantenimiento de las pasarelas de pago
+		\item Mantenimiento de dominio
+	\end{enumerate}
+
+	\subsection*{DÉCIMOSEXTA. ELEVACIÓN A PÚBLICO DEL CONTRATO}
+
+	Cualquiera de las Partes podrá solicitar, mediante requerimiento
+	fehaciente, la elevación a público del presente CONTRATO.
+
+	En ese caso, las Partes elegirán por mutuo acuerdo el Notario o Notaria
+	Público ante el cual se otorgará la escritura pública y la parte
+	solicitante se hará cargo de los correspondientes gastos notariales.
+
+	\subsection*{DÉCIMOSÉPTIMA. FUERZA MAYOR}
+
+	El retraso en el cumplimiento de cualquier obligación de las Partes no
+	será considerado una omisión o un incumplimiento del CONTRATO en el caso
+	de que tenga su origen en causas imprevisibles o inevitables (en
+	adelante, "FUERZA MAYOR"), siempre que se haya informado debidamente a
+	la otra Parte sobre esta situación.
+
+	Se entenderá como Fuerza Mayor, entre otras: inundación, incendio,
+	explosión, avería en la planta de producción, cierre patronal, huelga,
+	disturbio civil, bloqueo, embargo, mandato, ley, orden, regulación,
+	ordenanza, demanda o petición del gobierno, o cualquier otra causa que
+	se encuentre fuera de control de la Parte involucrada, sin que pueda
+	entenderse que la falta de fondos constituye una causa de Fuerza Mayor.
+
+	La Parte afectada por la Fuerza Mayor hará todo lo posible por eliminar
+	su causa. La exigibilidad de la obligación cuyo cumplimiento se haya
+	visto afectado por la situación de Fuerza Mayor se suspenderá hasta diez
+	(10) días después de que la situación de Fuerza Mayor deje de impedir o
+	retrasar el cumplimiento. Si la causa de Fuerza Mayor no desaparece tras
+	treinta (30) días, o un plazo inferior que justifique la resolución por
+	la imposibilidad de ejecutar la obligación, las Partes podrán acordar la
+	modificación del CONTRATO o su resolución.
+
+	\subsection*{DÉCIMOCTAVA. OBLIGACIÓN DE NO COMPETENCIA}
+
+	El DESARROLLADOR se compromete a no tener o mantener, ni directa ni
+	indirectamente, intereses o a participar y desarrollar actividades,
+	proyectos o empresas que supongan una competencia directa o indirecta
+	con el uso, explotación o desarrollo del Software. Esta obligación de no
+	competencia se extenderá en el siguiente territorio o zona geográfica:
+	ESPAÑA.
+
+	Así, durante un plazo de DOS (2) años desde la fecha recogida en el
+	encabezado de este CONTRATO, el DESARROLLADOR no podrá, ya sea de forma
+	directa o indirecta, compartir ningún tipo de información a la que
+	pudiesen haber tenido acceso, ni ser propietarios, dirigir, controlar,
+	participar, como inversores, directivos, consultores o consejeros o de
+	cualquier otra manera, ser contratados, o contratar a empleados del
+	CLIENTE, o captar clientes de la misma, para o con beneficio a una
+	sociedad competidora en la comercialización o gestión del Software. Ya
+	sea en régimen de CONTRATO laboral, incluso si se trata de una relación
+	laboral especial, o en régimen de arrendamiento de servicios o
+	asesoramiento interno, de modo directo o indirecto a través de personas
+	jurídicas interpuestas.
+
+	El DESARROLLADOR reconoce que la prohibición de no competencia
+	post-contractual se encuentra debidamente compensada dentro del precio
+	del desarrollo del Software.
+
+	En todo caso, el CLIENTE podrá eximir de la obligación de no competencia
+	al DESARROLLADOR cuando entienda que su actividad no supondría un
+	perjuicio.
+
+	No obstante, a la vista del daño que se causaría en el caso de
+	incumplimiento de la presente Estipulación, el DESARROLLADOR deberá
+	abonar inmediatamente al CLIENTE una indemnización compensatoria
+	razonable y proporcional al daño que se cause.
+
+	Esta penalidad se considera justa por parte del DESARROLLADOR dada la
+	relevancia para la actividad del CLIENTE que supone el respeto de lo
+	contenido en esta Estipulación.
+
+	\subsection*{DÉCIMONOVENA. OBLIGACIÓN DE SECRETO Y CONFIDENCIALIDAD}
+
+	Las Partes reconocen que toda la información a la que se pueda tener
+	acceso en el marco del CONTRATO, ya sea relacionada con el Software
+	objeto de desarrollo o relacionada con la actividad u organización de
+	alguna de las Partes (en adelante, la "{INFORMACIÓN}"), tiene carácter
+	confidencial. De esta forma, las Partes acuerdan no divulgarla y
+	mantener la más estricta confidencialidad respecto de dicha INFORMACIÓN,
+	advirtiendo, en su caso, de dicho deber de confidencialidad y secreto a
+	sus empleados, asociados y a cualquier persona que, por su cargo o
+	relación personal o sentimental deba o pueda tener acceso a la misma.
+
+	Ninguna de las Partes podrá reproducir, modificar, hacer pública o
+	divulgar a terceros la INFORMACIÓN sin previa autorización escrita y
+	expresa de la otra Parte.
+
+	Las Partes se comprometen a poner los medios necesarios para que la
+	INFORMACIÓN no sea divulgada ni cedida. Adoptarán las mismas medidas de
+	seguridad que adoptarían respecto a la información confidencial de su
+	propiedad, evitando su pérdida, robo o sustracción.
+
+	El receptor de la INFORMACIÓN se compromete, en su caso, a advertir
+	sobre la existencia del deber de confidencialidad a sus empleados,
+	asociados, y a toda persona a la cual se le facilite la INFORMACIÓN,
+	haciéndose responsable del uso indebido que estos puedan hacer de la
+	INFORMACIÓN relacionada con el CONTRATO.
+
+	Asimismo, la Parte que recibe la INFORMACIÓN se compromete a poner en
+	conocimiento de la otra Parte cualquier acción o incidente por parte de
+	terceros que pueda atentar contra la confidencialidad de la INFORMACIÓN.
+
+	Ambas Partes se comprometen a que la utilización de la INFORMACIÓN solo
+	estará dirigida a alcanzar los objetivos del CONTRATO y no otros, y que,
+	así, solo estará en conocimiento de aquellas personas estrictamente
+	necesarias para cumplir con aquellos.
+
+	Las disposiciones relativas a la confidencialidad previstas en este
+	CONTRATO se aplicarán durante la vigencia del mismo y, prevalecerán
+	durante el siguiente período: UN (1) año tras su terminación.
+	Este plazo de tiempo es inmediato a la terminación del CONTRATO.
+
+	\subsection*{VIGÉSIMA. INEXISTENCIA DE RENUNCIA}
+
+	La renuncia de una de las Partes a exigir el cumplimiento de alguna de
+	las obligaciones previstas en el CONTRATO, o a ejercer alguno de los
+	derechos o acciones que le asisten en virtud del mismo:
+		\begin{enumerate}[label=\Alph*)]
+			\item no liberará a la otra Parte del cumplimiento íntegro de las
+			restantes obligaciones contenidas en el CONTRATO; y,
+
+			\item no se entenderá como una renuncia a
+			exigir en un futuro el cumplimiento de cualquier obligación o a ejercer
+			derechos o acciones previstos en el CONTRATO.
+		\end{enumerate}
+
+	La dispensa, aplazamiento o renuncia de alguno de los derechos
+	contemplados en el CONTRATO, o a una parte de los mismos, será
+	únicamente vinculante si consta por escrito, pudiendo quedar sujeta a
+	las condiciones que el otorgante de dicha dispensa, aplazamiento o
+	renuncia considere oportuno, limitándose al caso concreto en el que se
+	produjo, y no restringirá, en ningún caso, su exigibilidad en otros
+	supuestos del derecho al que afecta.
+
+	\subsection*{VIGÉSIMOPRIMERA. TERMINACIÓN ANTICIPADA DEL CONTRATO}
+
+	El presente CONTRATO podrá ser resuelto por el mutuo acuerdo de las
+	Partes, con los efectos que ellas determinen. En todo caso, la
+	terminación del CONTRATO se deberá formular por escrito.
+
+	Por otro lado, el CONTRATO finalizará en el transcurso del periodo de
+	duración inicial, o de cualquiera de sus prórrogas, siempre que
+	cualquiera de las Partes denuncie su prórroga de acuerdo a lo
+	establecido en la Estipulación de Duración del CONTRATO.
+
+	Igualmente, podrá ser resuelto en cualquier momento por cada una de las
+	Partes, a su elección, sin necesidad de intervención judicial, y sin
+	perjuicio de la responsabilidad en la que incurra la otra Parte por su
+	incumplimiento contractual, siempre que existan "causas justificadas",
+	tal y como se expone a continuación:
+
+	\begin{enumerate}[label=\Alph*)]
+		\item el incumplimiento total o parcial por la otra Parte de alguna de las
+		condiciones u obligaciones esenciales de este CONTRATO que no sea
+		corregido en el plazo de diez (10) días a partir de la notificación
+		escrita y fehaciente para que así lo haga; y,
+
+		\item las demás establecidas en el articulado del presente CONTRATO o las
+		que se recojan en la ley, y en concreto, en el Código Civil y el Código
+		de Comercio.
+	\end{enumerate}
+
+	Ante la terminación anticipada del CONTRATO por cualquier causa, el
+	DESARROLLADOR cesará en su preparación y el CLIENTE en el uso y
+	comercialización de los módulos o partes del Software que hayan
+	recibido, debiendo cumplirse, en todo caso, lo dispuesto en la
+	Estipulación "Obligación de secreto y confidencialidad" sobre la
+	obligación de confidencialidad", las "Obligaciones de no competencia" y
+	las restantes obligaciones aplicables.
+
+	\subsection*{VIGÉSIMOSEGUNDA. INCUMPLIMIENTO DEL CONTRATO}
+
+	El incumplimiento por cualquiera de las Partes de las obligaciones
+	recogidas en el presente CONTRATO facultará a la otra Parte para, o bien
+	exigir su cumplimiento más el correspondiente pago de intereses
+	derivados del retraso en el cumplimiento, o bien resolver el CONTRATO en
+	el caso de que no se rectifique o subsane el incumplimiento por parte de
+	la Parte incumplidora en el plazo de diez (10) días naturales desde la
+	fecha en la que se verifique el incumplimiento, con la consiguiente
+	indemnización de daños y perjuicios más el pago de intereses por el
+	retraso en el cumplimiento del CONTRATO.
+
+	Nadie podrá eximirse del cumplimiento de las obligaciones del presente
+	CONTRATO mediante el pago de la correspondiente indemnización de daños y
+	perjuicios, pudiendo exigirse el cumplimiento de las obligaciones o
+	prestaciones debidas junto a la satisfacción de la correspondiente
+	indemnización.
+
+	\subsection*{VIGÉSIMOTERCERA. EXIGIBILIDAD}
+
+	La falta por cualquier Parte de la exigencia del cumplimiento de
+	cualquiera de las obligaciones recogidas en el presente CONTRATO no
+	afectará al derecho de dicha Parte a hacer valer la misma. La renuncia
+	por cualquier Parte de una estipulación de este CONTRATO no podrá
+	interpretarse ni como una renuncia a denunciar cualquier incumplimiento
+	posterior de dicha estipulación, ni como una renuncia de la misma.
+
+	\subsection*{VIGÉSIMOCUARTA. INTEGRIDAD DEL CONTRATO}
+
+	Las Partes reconocen que todos los documentos Anexos y/o adjuntados al
+	presente CONTRATO forman parte integrante del mismo a todos los efectos,
+	y por tanto, son totalmente vinculantes para las Partes.
+	
+	\subsection*{VIGÉSIMOQUINTA. COMUNICACIÓN ENTRE LAS PARTES}
+    Las comunicación establecida entre ambas PARTES se realizará a través de correo electrónico con acuse de recibo a las siguientes direcciones:
+    \begin{itemize}
+    \item Cliente: contacto@mejoresencuestas.es
+    \item Desarrollo: desarrollo@superdevs.es
+    \end{itemize}
+
+    Las comunicaciones deberán ser respondidas en un plazo máximo de un (1) día laborable 
+    según el calendario de la Comunidad de Madrid, en horario de 8:00 a 17:30. El DESARROLLADOR se compromete a responder en el plazo establecido a fin de hacer saber al
+    CLIENTE que ha recibido tal comunicación. Así mismo, el CLIENTE se compromete a
+    responder en el plazo establecido a fin de hacer saber al DESARROLLADOR que ha 
+    recibido tal comunicación.
+
+	\section*{EN VIRTUD DE LO CUAL,}
+	las Partes reconocen haber leído en su totalidad el CONTRATO, manifiestan
+	comprenderlo, y aceptan obligarse por sus términos y condiciones,
+	constituyendo el completo y el total acuerdo de las Partes. Y, en prueba de
+	conformidad, las Partes firman el presente CONTRATO en todas sus hojas, y en
+	tantas copias originales como Partes participen en el CONTRATO, constituyendo
+	todas esas copias un único acuerdo, en el lugar y fechas indicados en el
+	encabezamiento.
+	
+	\vspace{5cm}
+	\SignatureAndDate{Miguel Emilio Ruiz Nieto. Representante de SuperDevs S.L}
+    \vspace{6cm}
+    \SignatureAndDate{Miguel Pérez de la Rubia. Representante de MejoresEncuestas.es}
+
+	\newpage
+	\section*{Apéndice 1: Presupuesto}\label{apen_presu}
+    El presupuesto de SETENTA MIL EUROS (70000\euro) se divide en los siguientes gastos.
+		% TODO Meter la tabla del documento Presupuesto.tex (Revisar que las cifras son correctas)
+    \begin{itemize}
+        \item 2 programadores junior: 14.000 \euro
+        \item 1 programador senior: 11.360 \euro
+        \item 1 analista senior: 4.680 \euro
+        \item 1 administrador de bases de datos: 8.640 \euro
+        \item 1 QA: 1.260 \euro
+        \item Presupuesto base: 21.672,6 \euro
+    \end{itemize}
+    Se denomina presupuesto base a la cantidad establecida en concepto de los servicios de contratación.
+    \\
+    TOTAL + IVA = 70.000 \euro
+	\section*{Apéndice 2: Contrato de mantenimiento del software}
+	Se acuerda por ambas partes que el DESARROLLADOR mantendrá la APLICACIÓN
+	durante un (1) año tras la finalización del PERIODO DE PRUEBA establecido en la
+	ESTIPULACIÓN decimotercera del CONTRATO, comprometiéndose a atender	cualquier problema en menos de veinticuatro (24) horas laborables. El DESARROLLADOR se	compromete a recuperar la página en las siguientes veinticuatro (24) horas laborables tras
+	la caida de la misma.
+    
+\end{document}
