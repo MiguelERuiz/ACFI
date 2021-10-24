@@ -1,0 +1,46 @@
+fmod ARBIN is
+
+pr NAT .
+
+sort Arbin .
+
+--- Definición de árbol vacío y nodos del árbol binario
+op abv : -> Arbin [ctor] .
+op _[_,_]_ : Arbin Nat Nat Arbin -> Arbin [ctor] .
+
+--- Definición de variables
+vars D I : Arbin .
+vars C V C' V' N N' : Nat .
+
+
+--- Declaración y definición de funciones
+op mezcla : Nat Nat -> Nat .
+eq mezcla(N, N') = N + N' .
+
+op inserta : Arbin Nat Nat  -> Arbin .
+eq inserta(abv, C, V) = abv [C,V] abv .
+ceq inserta(I [C, V] D, C', V') = inserta(I, C', V') [C,V] D
+  if C' < C .
+ceq inserta(I [C,V] D, C', V') = I [C,V] inserta(D, C', V')
+  if C < C' .
+eq inserta(I [C,V] D, C, V') = I [C, mezcla(V, V')] D .
+
+op busca : Arbin Nat ~> Nat .
+eq busca(I [C,V] D, C) = V .
+eq busca(I [C,V] D, C') = if (C' > C)
+                          then busca(D,C')
+                          else busca(I, C')
+                          fi [owise] .
+---
+
+--- Ejemplo de árbol
+op test : -> Arbin .
+eq test = (abv [3,8] abv) [6,7] abv .
+
+--- Codigo de ejemplo para probar
+--- ~$ maude
+--- Maude> load ej1.maude
+--- Maude> red inserta(test, 4, 5) .
+--- Maude> red busca(test, 30) .
+
+endfm
