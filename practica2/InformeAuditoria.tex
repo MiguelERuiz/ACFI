@@ -1,0 +1,613 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[left=3cm,top=2.5cm,right=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{xcolor,colortbl}
+\usepackage{hyperref}
+\usepackage[enable]{easy-todo}
+\usepackage[spanish]{babel}
+
+\definecolor{Gray}{gray}{0.85}
+\newcommand*{\SignatureAndDate}[1]{%
+    \par\noindent\makebox[2.5in]{\hrulefill} %\hfill\makebox[2.0in]{\hrulefill}%
+    \par\noindent\makebox[1.5in][l]{#1}      \hfill\makebox[0.7in][c]{Fecha:}\today%
+}%
+
+
+\begin{document}
+\pagenumbering{gobble}
+    \title{Informe de auditoría de la aplicación de ventas de una carnicería}
+    \author{
+		Sergio García Sánchez
+		\and
+		Sara Juberías Campos
+		\and
+		José Luis Mela Navarro
+		\and
+		Amalia Regueira Fernández
+		\and
+		Miguel Emilio Ruiz Nieto
+    }
+    
+    \maketitle
+
+\newpage
+\pagenumbering{arabic}
+\begin{center}
+    {\Large \textbf{Destinatario}} 
+\end{center}
+\vspace{0.5cm}
+
+El destinatario de este informe es D. Adrián Riesco Rodríguez, Cliente del proyecto auditado.
+\\
+\vspace{1cm}
+\begin{center}
+    {\Large \textbf{Entidad auditada}}
+\end{center}
+
+\vspace{0.5cm}
+
+La entidad auditada es RERFLE S.L.. Esta Empresa de desarrollo de software está especializada
+en aplicaciones web. En particular, se audita el proyecto Carnicería desarrollado para el
+Cliente D. Adrián Riesco Rodríguez.\\
+
+\vspace{1cm}
+
+\begin{center}
+    {\Large \textbf{Alcance}}
+\end{center}
+\vspace{0.5cm}
+
+Como veremos en la sección de objetivos, en esta auditoría vamos a analizar los siguientes puntos:\\
+
+\begin{itemize}
+    \item Contrato, estudiando cómo se gestionaron los requisitos y los riesgos.
+    \item Plan de desarrollo, fijándonos especialmente en el plan de desarrollo, las tareas críticas y los hitos.
+    \item Requisitos, definición y documentación de los mismos. Se estudiarán los requisitos de mantenibilidad.
+    \item Diseño, su documentación y distintas revisiones.
+    \item Implementación, pruebas, testing y revisiones.
+    \item Seguimiento de hitos y riesgos, así como riesgos solucionados.
+    \item Documentación del proyecto y control de versiones sobre la misma.
+\end{itemize}
+
+\vspace{1cm}
+
+\begin{center}
+    {\Large \textbf{Comparabilidad}}
+\end{center}
+
+\vspace{0.5cm}
+No se dispone de información sobre informes de auditoría anteriores.\\
+
+% \vspace{1cm}
+\newpage
+\begin{center}
+    {\Large \textbf{Salvedades}}
+\end{center}
+
+\vspace{0.5cm}
+Se han detectado las siguientes salvedades:
+
+\begin{itemize}
+    \item No se pudo contactar con los desarrolladores, por lo que no se pudieron confirmar ciertos aspectos poco desarrollados en la memoria. Algunos de estos aspectos son la revisión por pares, los hitos seguidos o las soluciones tomadas para los riesgos detectados.
+    
+    \item No se pudo ejecutar el código de la aplicación en nuestros equipos de manera local, por
+    lo que no pudimos probar las funcionalidades implementadas para verificar que se comportaban
+    correctamente en base a la documentación aportada.
+\end{itemize}
+
+
+\vspace{1cm}
+
+\begin{center}
+    {\Large \textbf{Incumplimientos}}
+
+
+\vspace{0.5cm}
+
+
+   \begin{tabular}{|l|c|c|c|c|c|}
+\hline
+\texttt{Item} & \texttt{Objetivo} & \texttt{S\'i} & \texttt{No} & \texttt{Parcial} &
+\texttt{N.A.}\\
+\hline
+\rowcolor{Gray}
+1. & Contrato &&&&\\
+\hline
+1.1. & Se reflejan los requisitos &&x&&\\
+\hline
+1.2. & Se justifican los requisitos rechazados &&&&x\\
+\hline
+1.3. & Se tienen en cuenta los riesgos &&x&&\\
+\hline
+\rowcolor{Gray}
+2. & Plan de desarrollo &&&&\\
+\hline
+2.1. & Plan de desarrollo definido &&&x&\\
+\hline
+2.2. & Plan de desarrollo documentado &&&x&\\
+\hline
+2.3. & Tareas cr\'iticas establecidas &&x&&\\
+\hline
+2.4. & Hitos establecidos &&&x&\\
+\hline
+\rowcolor{Gray}
+3. & Requisitos &&&&\\
+\hline
+3.1. & Requisitos claramente definidos &&&x&\\
+\hline
+3.2. & Requisitos claramente documentados &x&&&\\
+\hline
+3.3. & Existen requisitos de mantenibilidad &&x&&\\
+\hline
+\rowcolor{Gray}
+4. & Dise\~no &&&&\\
+\hline
+4.1. & Dise\~no claramente documentado &&&x&\\
+\hline
+4.2. & Revisiones formales de dise\~no &&&x&\\
+\hline
+4.3. & Revisiones por pares &&x&&\\
+\hline
+\rowcolor{Gray}
+5. & Implementaci\'on &&&&\\
+\hline
+5.1. & Pruebas de unidad &&x&&\\
+\hline
+5.2. & Testing documentado &&x&&\\
+\hline
+5.3. & Revisiones por pares &&x&&\\
+\hline
+\rowcolor{Gray}
+6. & Seguimiento &&&&\\
+\hline
+6.1. & Hitos seguidos &&&x&\\
+\hline
+6.2. & Riesgos seguidos &&x&&\\
+\hline
+6.3. & Riesgos solucionados &&&&x\\
+\hline
+\rowcolor{Gray}
+7. & Documentaci\'on &&&&\\
+\hline
+7.1. & Documentos controlados &&x&&\\
+\hline
+7.2. & Responsable de documentos controlados &&x&&\\
+\hline
+7.3. & Documentaci\'on para testing &&x&&\\
+\hline
+7.4. & Documentaci\'on de instalaci\'on y uso &&&x&\\
+\hline
+\end{tabular}
+\end{center}
+\vspace{2cm}
+
+\newpage
+\subsection*{Evaluación detallada:}
+
+\begin{enumerate}
+    \item[1.1] En el contrato firmado por las partes no se reflejan los requisitos de la aplicación.\\
+    \vspace{0.05cm}
+    
+    \textbf{Recomendación:} Reflejar en el contrato los requisitos es importante para conocer el alcance de la aplicación y poder justificar posteriormente costes y tiempos.\\
+
+    \item[1.2] No se tiene constancia alguna de justificación de los requisitos rechazados.\\ 
+    \vspace{0.05cm}
+    
+    \textbf{Recomendación:} El uso de documentos controlados y el nombramiento de un responsable facilitaría el seguimiento de los cambios, por lo que se recomienda seguir estos pasos e incluir el contrato como parte de los documentos controlados. \\ 
+    \item[1.3] Los riesgos no se ven reflejados en el contrato.\\
+    \vspace{0.05cm}
+    
+    \textbf{Recomendación:} Se deben reflejar los riesgos en el contrato para que en el futuro el Cliente pueda tenerlo en cuenta y el desarrollador sepa cómo actuar.\\
+    \item[2.1] El Plan de Desarrollo está parcialmente debido a las siguientes razones:
+        \begin{enumerate}
+        
+            \item En primer lugar, los productos del plan contienen fechas que no
+            son congruentes, debido a que en la página 6, sección 2. Planificación del
+            documento \textit{Documentación Carnicería}, la planificación que se muestra
+            en el Diagrama de Gantt del ciclo de vida consta de 6 fases: Fase Inicial; 
+            Fase de Diseño; Fase de Pruebas; Fase de Modificaciones; Fase de entrega
+            e instalación y Garantía del servicio, y constan de una duración de 56
+            días. No obstante, en la página 3, cláusula SEGUNDA - Fases de desarrollo,
+            del documento \textit{Contrato Carnicería} se especifican tan solo 4 fases
+            del ciclo de vida: Fase inicial; Fase de pruebas; Fase de modificaciones y
+            Fase de entrega e instalación, que hacen un total de 35 días desde la firma
+            del contrato, mientras que en la cláusula TERCERA - Duración del contrato,
+            se indica explícitamente que la duración del propio contrato es de un total
+            de 28 días desde la firma del mismo.\label{productos}
+            
+            \item Respecto a las interfaces, no se ha encontrado documentación al respecto
+            sobre comunicación con interfaces ya existentes que sean propiedad de la Empresa
+            o de otra naturaleza, ya sean bien de ámbito software o bien hardware, ni de
+            otros módulos ya existentes.\label{interfaces}
+            
+            \item Seguidamente, de cara a las herramientas y directivas en las diferentes
+            fases del proyecto, en la página 20, sección 6. Implementación del documento \textit{Documentación Carnicería} se especifican las herramientas que se 
+            utilizaron  durante la fase de desarrollo en las subsecciones Tecnologías 
+            utilizadas y Herramientas utilizadas. No se menciona ninguna otra herramienta
+            o directiva en la documentación aportada.\label{herramientas}
+            
+            \item En relación a los estándares y procedimientos software, desde el punto 1. 
+            Ciclo de vida y alcance del proyecto, que comienza en la página 4, hasta el 
+            punto 9. Revisiones técnicas formales, que arranca en la página 24 del documento
+            \textit{Documentación Carnicería} se especifica en qué ha consistido cada una
+            de las etapas que se han seguido durante el ciclo de vida de este proyecto,
+            pero no hay ninguna mención a ningún estándar seguido para ello, ni ningún otro procedimiento más allá de indicar en el punto 1. que se va a seguir un modelo
+            iterativo incremental.\label{estandares}
+            
+            \item Sobre la descripción del proceso de desarrollo, existe un Diagrama de Gantt,
+            donde se expone una planificación acerca de cómo se va a desarrollar el proyecto en
+            la página 6, punto 2. Planificación del documento \textit{Documentación Carnicería}. Adicionalmente, se detalla en las páginas 3 y 4, cláusula SEGUNDA - Fases de
+            desarrollo del documento \textit{Contrato Carnicería} las distintas fases en 
+            las que va a constar el desarrollo del proyecto. Se ha detectado que
+            no coinciden las fases descritas en dichos documentos, como hemos especificado en
+            el apartado de \hyperref[productos]{productos del plan}.\label{descripcion}
+            
+            \item En lo que respecta a los hitos, en la página 2, sección Definición de los
+            hitos del documento \textit{Documentación Carnicería} se indican los hitos que 
+            van a ser abordados en cada fase del proyecto, pero nuevamente, como ocurría
+            en el punto anterior, las fases descritas en dicha sección no se corresponden
+            con las fases indicadas en la planificación del proyecto ni en el contrato.
+            Asimismo, los hitos descritos no tienen fecha de inicio y fin, por lo que 
+            no se puede conocer la magnitud de su duración.\label{hitos}
+            
+            \item En cuanto a la organización del personal, en la página 4, cláusula QUINTA -
+            Responsable del trabajo, del documento \textit{Contrato Carnicería} se especifica que el
+            responsable de desarrollo por parte de la Empresa es D. Luis Enrique Ortíz de Orué
+            Flores, y que, a su vez, es el responsable de dicho departamento. Por su parte, D. 
+            Ricardo Francisco Mendoza Diez, actúa de interlocutor por parte de la Empresa.
+            Asimismo, en la página 8, cláusula DECIMOTERCERA - Notificaciones del contrato, 
+            se nombra a D. Roberto Edward Gastiaburu Tovar como el responsable en cuestiones
+            económicas, sin especificar su cargo dentro de la organización. A pesar de ello, no 
+            existe una organización del personal enfocado al Plan de desarrollo, que detalle 
+            quién va a abordar las diferentes tareas dentro de cada fase del ciclo de
+            vida del proyecto.\label{organizacion}
+            
+            \item En materia de infraestructura, en la página 20, sección 6. Implementación,
+            subsecciones Tecnologías utilizadas y Herramientas utilizadas, del documento
+            \textit{Documentación Carnicería} se específica qué herramientas software se van a
+            emplear, sin diferenciar qué tipo de herramienta son, como entornos de desarrollo,
+            editores de texto, aplicaciones gráficas o por línea de comandos, bases de datos,
+            control de versiones o de algún otro tipo. No específica que hayan usado
+            recursos de otro tipo, como puede ser material de oficina, bienes muebles o 
+            inmuebles, ni tampoco se precisan los plazos donde dichos recursos van a ser
+            utilizados.\label{infraestructura}
+            
+            \item En relación a los riesgos, en la página 2, sección Evaluación de riesgos
+            del documento \textit{Documentación Carnicería}, se mencionan qué riesgos se han identificado, sin especificar a qué de tipo de riesgos corresponden.\label{riesgos}
+            
+            \item Con lo que respecta a los métodos de control, no se específica en la documentación
+            aportada que se haya realizado ningún tipo de seguimiento entre los miembros del
+            equipo para el desarrollo del proyecto ni los procesos seguidos para ello.\label{control}
+            
+            \item Finalmente, en lo referente a la estimación de costes, no se tiene constancia en la
+            documentación aportada ninguna estimación de costes relacionada con personal,
+            infraestructura,riesgos o cualquier otra índole.\label{costes}
+        \end{enumerate}
+        
+        \textbf{Recomendaciones:}
+            \begin{enumerate}
+                \item  \hyperref[productos]{Productos del plan}: Se debe
+                establecer las mismas fechas para las fases mencionadas en
+                el CONTRATO como en el documento \textit{Documentación
+                Carnicería}.
+                
+                \item  \hyperref[interfaces]{Interfaces}: Solicitar
+                información a la Empresa
+                sobre qué interfaces adicionales al sistema existen, de cara a conocer mejor
+                la comunicación entre las distintas capas de las que se compone el proyecto.
+                
+                \item  \hyperref[herramientas]{Herramientas y directivas}: Se recomienda solicitar
+                a la Empresa un informe con las herramientas y las directivas aplicadas en
+                cada fase del ciclo de vida del proyecto.
+                
+                \item  \hyperref[procedimientos]{Estándares y procedimientos Software}: Solicitar 
+                a la Empresa un informe sobre los estándares y procedimientos Software
+                seguidos durante el desarrollo de este proyecto.
+                
+                \item  \hyperref[proceso]{Descripción del proceso}: Revisar con la Empresa cuál
+                ha sido la fase de desarrollo seguida para aclarar lo que se establece en la
+                documentación del proyecto y lo que se refleja en el contrato.
+                
+                \item  \hyperref[hitos]{Hitos}: Nuevamente, revisar con la Empresa cuál ha
+                sido las fases en las que se ha desarrollado el proyecto, de cara a poder conocer
+                con precisión las fechas de cada hito.
+                
+                \item  \hyperref[tareas]{Organización del personal}: Se debe
+                exigir a la Empresa que especifique un organigrama detallado sobre 
+                los equipos que forman parte de la misma, indicando las diferentes tareas
+                que van abordar, así como los requisitos profesionales, certificados, experiencia
+                en lenguajes o herramientas, así como otro tipo de conocimiento demostrable que
+                sea de interés para formar parte del equipo, y por tanto, del desarrollo del proyecto.
+                
+                \item \hyperref[infraestructura] {Infraestructura}: Debe especificarse detalladamente
+                todo tipo de infraestructura requerida durante el desarrollo del proyecto.
+                
+                \item \hyperref[riesgos] {Riesgos}: Debe detallarse un plan de riesgos donde se
+                identifiquen y cataloguen los distintos riesgos encontrados en la fase de
+                Planificación del proyecto.
+                
+                \item \hyperref[control] {Métodos de control}: Se debe indicar cómo se va a seguir
+                el proceso de cómo y cuándo se van a producir las reuniones de coordinación.
+                
+                \item \hyperref[costes] {Estimación de costes}: Se debería entregado
+                un presupuesto desglosado, donde se indicará los costes asumidos
+                para el desarrollo del proyecto.\\
+            \end{enumerate}
+
+                \vspace{0.05cm}
+            
+    \item[2.2] En el punto anterior, hemos hecho mención a los documentos impactados en el plan de desarrollo,
+    y tal y como hemos indicados en el análisis desarrollado, enumeraremos los siguientes aspectos más
+    relevantes que hemos encontrado en la propia documentación: las fechas de planificación presentadas 
+    en la documentación aportada no coinciden, no se específica la interfaz, así como también las 
+    herramientas Software/Hardware utilizadas, no se hace uso de estándares en los procedimientos de
+    desarrollo, no se establecen fechas de inicio y fin para los hitos definidos, no se describe
+    detalladamente la organización  personal del equipo de desarrollo, así como la especificación
+    de métodos de control y estimación de costes de ningún tipo para el proyecto. \\
+    
+    \vspace{0.05cm}
+    
+    \textbf{Recomendación:} Como se indica anteriormente sobre los elementos del Plan de desarrollo definido,
+    se debe establecer las mismas fechas en los documentos aportados en las distintas fases del proyecto, de
+    tal manera, que haya una concordancia, así como también, especificar la interfaz y herramientas Software
+    y Hardware utilizadas, detallar los estándares y procedimientos del Software, definir fechas a los hitos
+    para las fases del proyecto y así precisar la organización por actividad para los miembros del equipo, 
+    que ayudaría a establecer métodos de control de seguimiento, y por último, se debe presentar una
+    estimación de costes completa, que involucre, todos los costes del proyecto.\\
+    
+    \vspace{0.05cm}
+    
+    \item[2.3] No hay documentación al respecto de tareas críticas que hayan 
+    sido definidas para el desarrollo de este proyecto.\\
+    
+    \vspace{0.05cm}
+    
+    \textbf{Recomendación:} Discutir con la Empresa las posibles funcionalidades
+    que sean consideradas de alto valor para el Cliente, de manera que puedan
+    establecerse una serie de tareas críticas por las cuales las nuevas 
+    versiones del producto no puedan ser lanzadas sin ellas. \\
+    
+    \vspace{0.05cm}
+    
+    \item[2.4] Los hitos están parcialmente establecidos por los siguientes motivos.
+    En la página 2, sección Definición de hitos, del documento \textit{Documentación Carnicería},
+    se hace mención a los hitos que van a ser establecidos durante las fases del 
+    ciclo de vida del proyecto. Se específica que habrá dos tipos de hitos: los 
+    principales, que serán cumplidos al final de cada fase, y los secundarios, 
+    que serán cumplidos en cada iteración. Los hitos principales sí que están
+    definidos, en base a unas fases que no casan con las fases descritas en la
+    página 6 sección 2. Planificación, del documento anteriormente mencionado.
+    No hay referencias a los hitos secundarios ni en este documento ni en ningún
+    otro de la documentación aportada.\\
+    
+    \vspace{0.05cm}
+    
+    \textbf{Recomendación:} El establecimiento de hitos ayuda a hacer una correcta
+    planificación de los plazos que se van a seguir, facilitando la identificación
+    de posibles retrasos que puedan surgir.\\
+    
+    \vspace{0.05cm}
+    
+    \item[3.1] Los requisitos están claramente definidos en el documento \textit{Documentación Carnicería},
+    sin embargo, no están totalmente detallados, ya que no están todos los diagramas UML correspondientes.\\
+    
+    \vspace{0.05cm}
+    
+    \textbf{Recomendación:} Los diagramas UML son necesarios para entender el flujo de la aplicación.
+    Además, es necesario definir uno por cada caso de uso que exista en la aplicación.\\
+    
+    \vspace{0.05cm}
+    
+    \item[3.2] En el documento \textit{Documentación carnicería} están los requisitos claramente documentados, entre las páginas 7 y 17 del mismo.\\
+    
+    \item[3.3] No hay documentación con respecto a los requisitos de mantenibilidad.\\
+    \vspace{0.05cm}
+    
+    \textbf{Recomendación:} Estos requisitos son útiles para asegurar con un nivel aceptable de confianza
+    que el mantenimiento del software satisfará los requisitos técnicos funcionales, así como que se 
+    adecuará a los plazos y al presupuesto. Una buena definición de estos requisitos permitirá también 
+    reducir los costes de mantenimiento en un futuro.
+    
+    La documentación de estos requisitos permitirán identificar, a posteriori, fallos de software, 
+    corregirlos y comprobar el éxito de las correcciones. Algunos de estos requisitos se refieren a la modularidad del sistema, documentación interna y manual del programador. \\
+    
+    \vspace{0.05cm}
+    
+    \item[4.1] El diseño está parcialmente documentado, debido a que en la
+    página 19, sección 5. Diseño, del documento \textit{Documentación
+    Carnicería} se presenta una arquitectura del diseño del sistema
+    en tres capas, que son: capa de negocio, capa de presentación y capa de
+    datos. Sin embargo, no se específica de manera detallada, ya sea de
+    forma escrita o mediante diagramas qué contiene cada una de
+    estas capas. Además, no se consideran las metodologías existentes para
+    la fase de diseño de software y tampoco, se presenta un diseño de
+    interfaz de usuario.\\
+    \vspace{0.05cm}
+        
+    \textbf{Recomendación:} Presentar diseño detallado de forma arquitectónica y representación algorítmica del sistema, así como también,  la interfaz de usuario. \\
+    
+    
+    \item[4.2] En lo que respecta a las revisiones formales de diseño, se considera parcialmente
+    cumplimentado. El motivo es que La Empresa presenta en la página 24, punto 9. Revisiones Técnicas
+    Formales del documento \textit{Documentación Carnicería}, las revisiones técnicas formales
+    (en adelante, RTF), que consta de una técnica de revisión mediante una serie de preguntas que
+    se encuentran desarrolladas en las páginas 12 a 14 del documento \textit{Anexo}, con el objetivo de
+    validar el software desarrollado. Al haber documentado ellos mismos en el punto 9. del documento
+    \textit{Documentación Carnicería} que las reuniones para realizar las RTF pertinentes se realizaron
+    vía telemática, no se tiene constancia de los procesos seguidos en las mismas como para calificarlas
+    de Revisiones Formales de Diseño.\\
+
+    \vspace{0.05cm}
+    \newpage
+    \textbf{Recomendación:} Las revisiones formales de diseño sirven para detectar y registrar los 
+    defectos de un producto intermedio, verificando que satisface sus especificaciones y que se ajusta
+    a los estándares establecidos, señalando las posibles desviaciones.\\
+    
+    \vspace{0.05cm}
+    
+    \item[4.3] En la documentación suministrada no se tiene constancia
+    alguna sobre revisiones por pares u opiniones de expertos. \\
+    
+    \vspace{0.05cm}
+    
+        \textbf{Recomendación:} Se debería hacer uso de revisores por
+        pares, cuyo objetivo principal es la búsqueda de defectos y
+        errores, y presentar alternativas de mejoras en el diseño y
+        algoritmos utilizados.\\
+        
+        \vspace{0.05cm}
+    
+    \item[5.1] No existen pruebas de unidad en el código aportado.\\
+    \vspace{0.05cm}
+    
+    \textbf{Recomendación:} Son necesarias las pruebas de unidad para ver si los requisitos están implementados correctamente antes de que la aplicación sea desplegada.
+    
+    \item[5.2] No existe testing documentado en el código aportado.\\
+    
+    \vspace{0.05cm}
+    
+    \textbf{Recomendación:} Es necesario hacer los test y documentarlo para conocer los casos de prueba y así no realizar el mismo trabajo varias veces reduciendo coste de esta forma.\\
+    
+    Una mala documentación del testing puede provocar que este sea incompleto y como consecuencia se den como correctas partes erróneas del código.\\
+    
+    \item[5.3] No existe documentación relativa a la revisión por pares.\\
+    \vspace{0.05cm}
+
+    \textbf{Recomendación:} Es recomendable realizar revisión por pares puesto que a veces es complicado que el propio diseñador/programador se de cuenta de sus propios fallos. Se recomienda por tanto especificar en la documentación del proyecto si se ha realizado dicha revisión por pares.\\
+    
+    \vspace{0.05cm}
+    
+    \item[6.1] A pesar de que los hitos están establecidos, como hemos argumentado en el punto 2.4, no hay documentación sobre el seguimiento de los mismos.\\
+    
+    \vspace{0.05cm}
+    
+    \textbf{Recomendación:} Documentar cómo se han ido cumpliendo o no los hitos permite identificar si el proyecto se ha realizado en tiempo. Además, facilita el seguimiento para garantizar la calidad del
+    producto. Así como también, conocer cómo se han distribuido los recursos destinados al proyecto, y de 
+    igual forma, contribuye a una mejor organización del equipo en proyectos futuros. \\
+    
+    \vspace{0.05cm}
+    
+    \item[6.2] Se ha realizado una evaluación breve de los riesgos, página 2 del documento \textit{Documentación carnicería}; sin embargo, no se ha especificado un plan de riesgos. \\
+    
+    \vspace{0.05cm}
+    
+    \textbf{Recomendación:} Es recomendable presentar un plan de riesgos para llevar control y 
+    seguimiento de los mismos, además, es beneficioso para futuros proyectos. \\
+    
+    \vspace{0.05cm}
+    
+    \item[6.3] Al no haber un seguimiento de los riesgos tampoco queda reflejado en la documentación
+    cómo han sido solucionado los mismos, si los ha habido.  \\
+    
+    \vspace{0.05cm}
+    
+    \textbf{Recomendación:} Es importante documentar la solución a los riesgos detectados, para poder tomarlos como ejemplo en proyectos futuros en los que puedan surgir riesgos similares. \\
+    
+    \vspace{0.05cm}
+    
+    \item[7.1] La documentación aportada no está sujeta a ningún tipo de control de versiones.\\
+    
+    \vspace{0.05cm}
+    
+    \textbf{Recomendación:} Es necesario controlar la documentación, ya que es vital, puesto que cualquier pequeño cambio puede influir mucho en el proyecto.\\
+    
+    \vspace{0.05cm}
+    
+    \item[7.2] En la documentación aportada no hay designado un responsable de documentos controlados.\\
+    
+    \vspace{0.05cm}
+    
+    \textbf{Recomendación:} Es necesario nombrar un responsable de dicha documentación, que se asegure que la misma es recopilada de forma correcta. \\
+    
+    \vspace{0.05cm}
+    
+    \item[7.3] No existe documentación referida a testing. \\
+    
+    \vspace{0.05cm}
+    
+    \textbf{Recomendación:} Es importante documentar el testing para saber qué pruebas se han llevado a cabo y cómo y cuáles no se han realizado para tenerlo en cuenta para problemas que puedan surgir en el futuro. \\
+    
+    \vspace{0.05cm}
+    
+    \item[7.4] Hay documentación de uso en el documento  \textit{Manual de usuario}, sin embargo, no hay documentación para la instalación.\\
+    
+    \vspace{0.05cm}
+    
+    \textbf{Recomendación:} El Cliente no tiene porqué saber cómo instalar la aplicación, por tanto, es necesario presentar un documento guía de dicha instalación.\\
+    
+    \vspace{0.05cm}
+\end{enumerate}
+
+% \vspace{1cm}
+% \newpage
+\begin{center}
+    {\Large \textbf{Énfasis}}
+\end{center}
+
+\vspace{0.5cm}
+
+Durante esta auditoría hemos detectado varios problemas graves, entre los que se encuentran:
+\begin{itemize}
+    \item \textbf{Mala gestión de riesgos:} Una mala gestión de riesgos puede llevar a que 
+    durante el proyecto se invierta demasiado tiempo en problemas que podrían tener una fácil
+    solución o incluso al fracaso del propio proyecto.
+    \vspace{0.05cm}
+    
+    \item \textbf{Falta de testing:} La falta de testing es una mala práctica en el desarrollo
+    Software, ya que puede ocasionar que el comportamiento inadecuado de ciertas funcionalidades
+    no sea detectado durante la fase de desarrollo y que lo sea en los entornos de producción, por
+    ello resaltamos este punto.
+    \vspace{0.05cm}
+    
+    \item \textbf{Falta de seguimiento del ciclo de vida:} No hacer un registro de la evolución
+    del proyecto puede provocar que existan incoherencias entre las distintas versiones del
+    proyecto, que dificulta por un lado a los miembros del equipo del proyecto sobre las distintas
+    funcionalidades que ya están abordadas en determinada versión, y por otro, al Cliente, porque
+    no puede ser capaz de hacer un seguimiento del producto que la Empresa le está entregando.
+    \vspace{0.05cm}
+    
+    \item \textbf{Falta de límites en el contrato:} En general, el proyecto no está bien delimitado en el contrato, debido a que existe una falta de definición de los riesgos, recursos asignados o del
+    presupuesto. La falta de estos puntos pueden llevar a malentendidos entre el Cliente y la Empresa
+    contratada.
+\end{itemize}
+
+\vspace{1cm}
+
+\begin{center}
+    {\Large \textbf{Informe de gestión}}
+\end{center}
+
+\vspace{0.5cm}
+
+En esta auditoría no hemos tenido acceso a documentación sobre la gestión.
+\vspace{1cm}
+
+\begin{center}
+    {\Large \textbf{Resumen}}
+\end{center}
+\vspace{0.5cm}
+
+No se han alcanzado los objetivos en la mayoría de apartados de la tabla de incumplimientos. No se puede establecer si estos incumplimientos han tenido impacto en el desarrollo o en la entrega. La escasez de documentación puede tener efectos durante el mantenimiento, principalmente la falta de documentación referente al testing y a los riesgos.
+\\
+
+Por ello, recomendamos que se amplíe la documentación del proyecto sobretodo en los aspectos mencionados.
+\vspace{1cm}
+
+\begin{center}
+    {\Large \textbf{Resultado}}
+\end{center}
+\vspace{0.5cm}
+
+{\Huge DESFAVORABLE} \\
+\newline
+Se recomienda revisar los procedimientos para el contrato y la documentación, tal y como se ha indicado en los puntos anteriores.
+\vspace{1cm}
+\newpage
+\begin{center}
+    {\Large \textbf{Fecha y firma}}
+\end{center}
+\vspace{5cm}
+\SignatureAndDate{Miguel Emilio Ruiz Nieto}
+
+
+\end{document}
