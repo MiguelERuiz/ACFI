@@ -1,0 +1,63 @@
+\documentclass[a4paper,12pt]{report}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definicion de paquetes
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{xargs}                      % Use more than one optional parameter in a new commands
+\usepackage[pdftex,dvipsnames]{xcolor}  % Coloured text etc.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definición de comandos
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Empieza el documento
+\begin{document}
+
+\title{Desarrollo del Trabajo}
+
+\author{
+		Sergio García Sánchez
+		\and
+		Sara Juberías Campos
+		\and
+		José Luis Mela Navarro
+		\and
+		Amalia Regueira Fernández
+		\and
+		Miguel Emilio Ruiz Nieto
+	}
+
+\maketitle
+\section*{Desarrollo del trabajo}
+
+En primer lugar, los miembros de grupo comenzamos a leer la documentación aportada para empezar a
+comprender la naturaleza y el alcance del propio proyecto. Esta tarea la hicimos todos a excepción
+de Sergio, que dedicó su esfuerzo en intentar ejecutar la aplicación sin éxito. Dado que no queríamos
+invertir demasiado tiempo en ello, optamos por dejar de lado el arranque de la aplicación y dividirnos el
+trabajo. Dicha división fue en base a la tabla de la sección Incumplimientos y en dos equipos:
+por un lado, Amalia, Sergio y Sara; y por otro, José Luis y Miguel.
+
+Cuando comenzamos a redactar el informe de auditoría, Sara junto con Amalia empezaron a estructurar
+el documento de entrega y completaron las secciones de Destinatario, Entidad Auditada, Comparabilidad
+y Salvedades.
+
+A partir de ese momento, fuimos repartiéndonos los distintos objetivos de la tabla por equipos,
+y en función de que un equipo acabara el punto que le correspondía, se abordaba el siguiente.
+En primera instancia, el primer equipo se asignó el primer punto y el segundo equipo, el segundo.
+Mientras que el segundo equipo le llevó más tiempo que al segundo completar los apartados del Plan de desarrollo, el primer equipo fue mucho más rápido y desarrolló más objetivos. Dicho lo cual, el primer
+equipo desarrolló los objetivos 1, 3, 5, 6 y 7, mientras que el segundo equipo solo desarrolló los puntos
+2 y 4.
+
+Una vez acabado el trabajo relacionado con justificar los incumplimientos, discutimos acerca de cuáles
+de estos iban a ser más relevantes de cara a desarrollar el Énfasis. El resto del documento fue abordado
+por todos los miembros del equipo.
+
+\end{document}
