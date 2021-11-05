@@ -1,0 +1,48 @@
+mod TABLEROSENKU  is
+  pr NAT .
+  sort Tablero Celda .
+  subsort Celda < Tablero .
+
+  *** (Fila, Columna, ocupado?)
+  op _,_,_ : Nat Nat Bool -> Celda[ctor] .
+  op tv : -> Tablero[ctor] .
+  op __ : Tablero Tablero -> Tablero[ctor assoc comm] .
+
+  vars T T' : Tablero .
+  vars X Y : Nat .
+
+  op cuentaFichas : Tablero -> Nat .
+  eq cuentaFichas ((X,Y,true) T) = 1 + cuentaFichas(T) .
+  eq cuentaFichas (T) = 0 [owise] .
+
+  *** Reglas para jugar al senku!
+  rl [saltaXMas]: (X,Y,true) (s(X),Y,true) (s(s(X)),Y,false) =>
+              (X,Y,false) (s(X),Y,false) (s(s(X)),Y,true) .
+
+  rl [saltaXMenos]: (X,Y,false) (s(X),Y,true) (s(s(X)),Y,true) =>
+              (X,Y,true) (s(X),Y,false) (s(s(X)),Y,false) .
+
+  rl [saltaYMas]: (X,Y,true) (X,s(Y),true) (X,s(s(Y)),false) =>
+              (X,Y,false) (X,s(Y),false) (X,s(s(Y)),true) .
+
+  rl [saltaYMenos]: (X,Y,false) (X,s(Y),true) (X,s(s(Y)),true) =>
+              (X,Y,true) (X,s(Y),false) (X,s(s(Y)),false) .
+
+  rl [saltaDiag1]: (X,Y,false) (s(X),s(Y),true) (s(s(X)),s(s(Y)),true) =>
+              (X,Y,true) (s(X),s(Y),false) (s(s(X)),s(s(Y)),false).
+
+  rl [saltaDiag2]: (X,Y,true) (s(X),s(Y),true) (s(s(X)),s(s(Y)),false) =>
+              (X,Y,false) (s(X),s(Y),false) (s(s(X)),s(s(Y)),true).
+
+op miTablero : -> Tablero .
+eq miTablero = (1,1, true)
+               (2,1, true) (2,2, true)
+               (3,1, true) (3,2, false) (3,3, true)
+               (4,1, true) (4,2, true) (4,3, true) (4,4, true)
+               (5,1, true) (5,2, true) (5,3, true) (5,4, true) (5,5, true) .
+
+endm
+
+search miTablero =>* T:Tablero s.t. cuentaFichas(T:Tablero) == 1 .
+
+search miTablero =>* (3,2,true) T:Tablero s.t. cuentaFichas(T:Tablero) == 0 .
