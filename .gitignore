@@ -1,0 +1,11 @@
+*aux
+*fdb_latexmk
+*fls
+*nav
+*out
+*toc
+*vrb
+_minted-*/
+*log
+*snm
+.vscode/
