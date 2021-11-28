@@ -10,4 +10,4 @@ test_zero() ->
 test_two() ->
     [?_assertEqual([17,42], sort_lib:sort([X,Y])) || {X,Y} <- [{17,42}, {42,17}]].
 test_four() ->
-    [?_assertEqual([1,1,3,4], sort_lib:sort([3,1,4,1]))].
+    ?_assertEqual([1,1,3,4], sort_lib:sort([3,1,4,1])).
