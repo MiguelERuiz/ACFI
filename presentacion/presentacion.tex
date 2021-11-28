@@ -7,6 +7,8 @@
 \usepackage[spanish]{babel}
 \usepackage{hyperref}
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\usepackage{pgfpages}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Definición de comandos
 \setlength{\marginparwidth}{2cm}
@@ -19,6 +21,10 @@
 % Beamer
 \usetheme{Madrid}
 \AtBeginEnvironment{minted}{\fontsize{12}{12}\selectfont}
+\setbeameroption{show notes on second screen=right}
+% \setbeameroption{show only notes}
+\setbeameroption{show notes}
+% \setbeamertemplate{note page}[default]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Título
 \title[ACFI]{Property-based Testing con PropEr}
