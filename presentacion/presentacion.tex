@@ -135,7 +135,7 @@
       \end{itemize}
       No obstante:
       \begin{itemize}
-        \item Garantiza encontrar mayor número de ``casos esquina'' y bugs\\
+        \item Asegura encontrar un mayor número de ``casos esquina'' y bugs\\
         dentro del código
       \end{itemize}
     \end{frame}
@@ -197,8 +197,53 @@
     %%% Paso de mensajes??
   \section{PropEr}
     \begin{frame}{PropEr}
-
+      \begin{itemize}
+        \item Herramienta para realizar property-based testing en Erlang
+        \item Inspirada en Quickcheck
+        \item Completamente integrada con los tipos de Erlang
+      \end{itemize}
     \end{frame}
+
+    \begin{frame}{PropEr}
+      Nos centraremos en los siguientes aspectos:
+      \begin{itemize}
+        \item Generadores
+        \item Estructura de las propiedades
+        \item Propiedades sin estado
+        \item Propiedades con estado
+        \item Reducción de casos con \mintinline{erlang}{?SHRINK}
+      \end{itemize}
+    \end{frame}
+
+
+    \subsection{Generadores}
+      \begin{frame}{PropEr. Generadores}
+        \begin{itemize}
+          \item Funciones que \textit{generan} entradas de una manera ``aleatoria''
+          \item Proporcionan datos en base al tipo del generador y a los filtros dados
+          \item Pueden ser:
+          \begin{itemize}
+            \item En base a los tipos de Erlang
+            \item Customizados por el desarrollador
+          \end{itemize}
+        \end{itemize}
+      \end{frame}
+
+      \begin{frame}{PropEr. Generadores. Ejemplos}
+        Basados en los tipos de Erlang
+        \begin{block}{~\vspace{0.7cm}}
+          \begin{center}
+          \vspace{-0.8cm}
+          \begin{tabular}{p{0.45\textwidth}|p{0.45\textwidth}}
+            \textcolor{white}{\bf Generador} & \textcolor{white}{\bf Muestra} \\
+              \mint{erlang}{integer()} & \mint{erlang}{89234} \\ \hline
+              \mint{erlang}{boolean()} & \mint{erlang}{true, false} \\ \hline
+              \mint{erlang}{list(Type)} & \mint{erlang}{[true, true, false]} \\ \hline
+              \mint{erlang}{tuple()} & \mint{erlang}{{true, 13.321123, -67}} \\
+          \end{tabular}
+          \end{center}
+        \end{block}
+      \end{frame}
     \subsection{Estructura de las propiedades}
     \subsection{Generadores}
     \subsection{Invariantes}
