@@ -149,14 +149,46 @@
       \end{itemize}
     \end{frame}
     \subsection{Sintaxis}
-    \begin{frame}
-      % TODO Meter sintaxis de
-      %%% Modulos y funciones
-      %%% Listas
-      %%% Tuplas
-      %%% Pattern Matching
-      %%% Paso de mensajes
+    \begin{frame}[fragile]{Sintaxis. Módulos y funciones}
+      \begin{minted}{erlang}
+        -module(sucessions).
+        -export([fib/1]).
+
+        fib(0) -> 0;
+        fib(1) -> 1;
+        fib(N) -> fib(N-1) + fib(N-2).
+      \end{minted}
     \end{frame}
+
+    \begin{frame}[fragile]{Sintaxis. Listas}
+      \begin{minted}{erlang}
+        1> [First | TheRest] = [1,2,3,4,5].
+        2> First.
+        1
+        3> TheRest.
+        [2,3,4,5]
+      \end{minted}
+    \end{frame}
+      %%% Tuplas
+    \begin{frame}[fragile]{Sintaxis. Tuplas}
+      \begin{minted}{erlang}
+        4> X = 10, Y = 4.
+        4
+        5> Point = {X,Y}.
+        {10,4}
+        6> PreciseTemperature = {celsius, 23.213}.
+      \end{minted}
+    \end{frame}
+    %%% Pattern Matching??
+    \begin{frame}[fragile]{Sintaxis. Funciones de Orden Superior}
+      \begin{minted}{erlang}
+        7> Add_3 = fun(X) -> X + 3 end.
+        #Fun<erl_eval.7.126501267>
+        8> lists:map(Add_3, [1,2,3]).
+        [4,5,6]
+      \end{minted}
+    \end{frame}
+    %%% Paso de mensajes??
   \section{PropEr}
     \begin{frame}{PropEr}
 
