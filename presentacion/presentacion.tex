@@ -83,14 +83,14 @@
       Las metodologías de testing tradicionales son útiles ya que:
       \begin{itemize}
         \item Obliga a los desarrolladores a escribir casos de prueba\\
-        de sus desarrollos
+        del software desarrollado
         \item Para cada input se debe generar un cierto output con el fin\\
-        de comprobar el comportamiento del sistema
+        de comprobar el correcto funcionamiento del sistema
       \end{itemize}
     \end{frame}
 
     \begin{frame}{Motivación}
-      Pero tiene sus inconvenientes:
+      Pero tienen sus inconvenientes:
       \begin{itemize}
         \item Consumen tiempo (€€€)
         \item No se garantiza que la batería de tests cubra todos los casos
@@ -102,12 +102,35 @@
         \textbf{Property-based testing}
       \end{exampleblock}
     \end{frame}
-  \section{Definición}
-    \begin{frame}{Definición}
+  \section{Definiciones}
+    \begin{frame}{Property-based Testing. Definición}
       \begin{itemize}
-        \item Es una técnica para hacer pruebas sobre las propiedades de nuestro sistema
-        \item Los tests no son sobre casos de uso, sino sobre el comportamiento del propio sistema
+        \item Es una técnica para hacer pruebas sobre las propiedades\\
+        de nuestro sistema
+        \item Los tests no son sobre casos de uso, sino sobre el\\
+        comportamiento del propio sistema
         \item Muy común en lenguajes de programación funcional (i.e Quickcheck)
+      \end{itemize}
+    \end{frame}
+    \begin{frame}{Propiedades}
+      \begin{itemize}
+        \item Son reglas generales que describen el comportamiento de una\\
+        función o un programa
+        \item Han de ser aplicables a cualquier tipo de entrada y salida del\\
+        propio programa
+        \item La salida debe verificar ciertas características deseadas
+      \end{itemize}
+    \end{frame}
+    \begin{frame}{Propiedades}
+      Al principio puede resultar no tan trivial como los tests unitarios ya que:
+      \begin{itemize}
+        \item El desarrollador ha de tener una visión más nítida de los\\
+        casos de uso y del comportamiento del sistema
+      \end{itemize}
+      No obstante:
+      \begin{itemize}
+        \item Garantiza encontrar mayor número de ``casos esquina'' y bugs\\
+        dentro del código
       \end{itemize}
     \end{frame}
   \section{Erlang}
