@@ -27,9 +27,9 @@
 % Beamer
 \usetheme{Madrid}
 \AtBeginEnvironment{minted}{\fontsize{12}{12}\selectfont}
-\setbeameroption{show notes on second screen=right}
+% \setbeameroption{show notes on second screen=right}
 % \setbeameroption{show only notes}
-\setbeameroption{show notes}
+% \setbeameroption{show notes}
 % \setbeamertemplate{note page}[default]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Título
@@ -45,6 +45,7 @@
 
   \begin{frame}{Contenidos}
     \tableofcontents[hideallsubsections]
+    \todo{Añadir conclusiones}
   \end{frame}
 
   \section{Motivación}
@@ -58,7 +59,7 @@
         sort([]) -> [];
         sort([P|Xs]) ->
           sort([X || X <- Xs, X < P]) ++
-              [P] ++ sort([X || X <- Xs, P =< X]).
+              [P] ++ sort([X || X <- Xs, P < X]).
       \end{minted}
     \end{frame}
     \begin{frame}[fragile]{Motivación. Test unitarios}
@@ -77,8 +78,8 @@
                       || {X,Y} <- [{17,42}, {42,17}]
             ].
         test_four() ->
-            ?_assertEqual([1,1,3,4],
-                    sort_lib:sort([3,1,4,1])).
+            ?_assertEqual([1,2,3,4],
+                    sort_lib:sort([3,1,4,2])).
       \end{minted}
     \end{frame}
     \begin{frame}{Motivación}
@@ -123,6 +124,7 @@
         comportamiento del propio sistema
         \item Muy común en lenguajes de programación funcional (i.e Quickcheck)
       \end{itemize}
+      \todo{PBT tiene dos fases 1) generar datos de entrada de manera aleatoria 2) hacer verificaciones de las funciones aplicadas a esos datos  }
     \end{frame}
     \begin{frame}{Propiedades}
       \begin{itemize}
@@ -132,6 +134,7 @@
         propio programa bajo sus propias condiciones
         \item La salida debe verificar ciertas características deseadas
       \end{itemize}
+      \todo{Revisar si existe ?EXISTS}
     \end{frame}
     \begin{frame}{Propiedades}
       Al principio puede resultar no tan trivial como los tests unitarios ya que:
@@ -144,6 +147,9 @@
         \item Asegura encontrar un mayor número de ``casos esquina'' y bugs\\
         dentro del código
       \end{itemize}
+      \todo{Añadir en conclusiones: Merece la pena usar PBT porque te genera casos de test muy `rápido'}
+      \todo{Añadir en conclusiones: Hay casos en los que puede merecer la pena más hacer test unitarios}
+      \todo{Añadir en conclusiones: La realidad es que no se usa porque está muy centrado en lenguajes funcionales}
     \end{frame}
   \section{Erlang}
     \subsection{Historia}
@@ -156,7 +162,7 @@
           \item Paso de mensajes
           \item Tolerancia a fallos
           \item Alta disponibilidad
-          \item Filosofía "Let it crash"
+          \item Filosofía ``Let it crash''
         \end{itemize}
       \end{itemize}
     \end{frame}
@@ -181,14 +187,14 @@
         [2,3,4,5]
       \end{minted}
     \end{frame}
-      %%% Tuplas
+    %%% Tuplas
     \begin{frame}[fragile]{Sintaxis. Tuplas}
       \begin{minted}{erlang}
         4> X = 10, Y = 4.
         4
         5> Point = {X,Y}.
         {10,4}
-        6> PreciseTemperature = {celsius, 23.213}.
+        6> PreciseTemperature = {celsius, 23.213, 45}.
       \end{minted}
     \end{frame}
     %%% Pattern Matching??
@@ -199,6 +205,7 @@
         8> lists:map(Add_3, [1,2,3]).
         [4,5,6]
       \end{minted}
+      \todo{Poner un ejemplo de pattern matching}
     \end{frame}
     %%% Paso de mensajes??
   \section{PropEr}
@@ -344,6 +351,8 @@
     \subsection{Propiedades con estado}
       \begin{frame}{PropEr. Propiedades con estado}
         \improvement{Qué ejemplo puedo poner aqui}
+        \todo{Decir que hasta ahora hemos visto propiedades sin estado}
+        \todo{Poner de ejemplo de propiedad con estado Persona puede conducir}
       \end{frame}
     \subsection{?SHRINK}
       \begin{frame}{PropEr. Macro ?SHRINK}
@@ -357,7 +366,7 @@
 
       \begin{frame}[fragile]{PropEr. Macro ?SHRINK. Ejemplo}
         \begin{minted}{erlang}
-          %% TODO
+          %% TODO cómo funciona shrinking internamente
         \end{minted}
       \end{frame}
 
