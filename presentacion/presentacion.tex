@@ -254,7 +254,31 @@
       \begin{frame}[fragile]{PropEr. Generadores. Ejemplos}
         Customizados por el desarrollador
         \begin{minted}[fontsize=\small]{erlang}
-          % TODO Sacar un buen ejemplo de generadores customizados
+          ?LET(InstanceOfType, TypeGenerator, Transform).
+        \end{minted}
+        \begin{itemize}
+          \item \mintinline{erlang}{InstanceOfType} : La variable que contendrá los datos\\
+          generados por el generador del segundo argumento
+          \item \mintinline{erlang}{TypeGenerator} : La función generadora que produce los\\
+          datos que se almacenan en el argumento anterior
+          \item \mintinline{erlang}{Transform} : Expresión que transforma los datos\\
+          de la propia función y los acumula en el argumento anterior
+        \end{itemize}
+      \end{frame}
+
+      \begin{frame}[fragile]{PropEr. Generadores. Ejemplos}
+        \begin{minted}[fontsize=\small]{erlang}
+          % Customized Generator
+          list_no_dupls(T) ->
+            ?LET(L, list(T), remove_duplicates(L)).
+
+          % Helper
+          remove_duplicates([]) -> [];
+          remove_duplicates([A|T]) ->
+              case lists:member(A, T) of
+                  true -> remove_duplicates(T);
+                  false -> [A|remove_duplicates(T)]
+              end.
         \end{minted}
       \end{frame}
 
@@ -284,14 +308,20 @@
           more complex sequences of expressions into a single one.}
       \end{frame}
 
-      \begin{frame}[fragile]{PropEr. Estructura de las propiedades. Ejemplo}
+      \begin{frame}[fragile]{PropEr. Estructura de las propiedades. Ejemplos}
         \begin{minted}[fontsize=\small]{erlang}
           -module(prop_sort_lib).
 
           -include_lib("proper/include/proper.hrl").
 
+          % Propiedad con generador con tipo de Erlang
           prop_same_length() ->
               ?FORALL(L, list(integer()),
+                length(L) =:= length(sort_lib:sort(L))).
+
+          % Propiedad con generador customizado
+          prop_same_length_no_dupls() ->
+              ?FORALL(L, list_no_dupls(integer()),
                 length(L) =:= length(sort_lib:sort(L))).
         \end{minted}
       \end{frame}
