@@ -6,6 +6,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{hyperref}
+\usepackage[nodayofweek,level]{datetime}
 \usepackage{xargs}
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
 \presetkeys{todonotes}{inline}{}
@@ -23,6 +24,7 @@
 % \improvement{THIS must be improved}
 \newcommandx{\improvement}[2][1=]{\todo[linecolor=orange,backgroundcolor=orange!25,bordercolor=orange,#1]{#2}}
 \newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
+\newcommand{\mydate}{\formatdate{3}{12}{2021}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Beamer
 \usetheme{Madrid}
@@ -35,7 +37,7 @@
 % Título
 \title[ACFI]{Property-based Testing con PropEr}
 \author{Miguel Emilio Ruiz Nieto}
-\date{\today} % TODO poner la fecha del 3/11/2021
+\date{\mydate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Empieza el documento
 \begin{document}
