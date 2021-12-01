@@ -244,7 +244,7 @@
         \item Estructura de las propiedades
         \item Propiedades sin estado
         \item Propiedades con estado
-        \item Reducción de contraejemplos con \mintinline{erlang}{?SHRINK}
+        \item Reducción de contraejemplos (\textit{shrinking})
       \end{itemize}
     \end{frame}
 
@@ -363,26 +363,39 @@
         \todo{Poner de ejemplo de propiedad con estado Persona puede conducir}
         \unsure{Mirar el ejemplo del videoclub con A. Riesco y valorar}
       \end{frame}
-    \subsection{?SHRINK}
-      \begin{frame}{PropEr. Macro ?SHRINK}
+    \subsection{Shrinking}
+      \begin{frame}{PropEr. Reducción de contraejemplos}
         \begin{itemize}
-          \item En algunos casos, puede haber ciertos tests que no cumplan las\\
-          propiedades que hemos definido
-          \item Por ello, es conveniente \textit{reducir} el número de muestras
-          que PropEr genera para pasar dicho test con \mintinline{erlang}{?SHRINK}
+          \item En algunos casos, puede haber ciertos tests que no\\
+          cumplan las propiedades que hemos definido
+          \item PropEr es capaz de aplicar \textit{reducciones} hasta llegar\\
+          al contraejemplo más pequeño posible
         \end{itemize}
       \end{frame}
 
-      \begin{frame}[fragile]{PropEr. Macro ?SHRINK. Ejemplo}
-        \begin{minted}{erlang}
-          %% TODO cómo funciona shrinking internamente
+      \begin{frame}[fragile]{PropEr. Reducción de contraejemplos}
+        \begin{minted}{shell}
+          ~ $ rebar3 proper
+          ===> Verifying dependencies...
+          ===> Compiling sort_lib
+          ===> Testing prop_sort_lib:prop_same_length()
+          .........!
+          Failed: After 10 test(s).
+          [9,-2,8,-2]
+
+          Shrinking ..(2 time(s))
+          [-2,-2]
+          ===>
+          0/1 properties passed, 1 failed
+          ===> Failed test cases:
+          prop_sort_lib:prop_same_length() -> false
         \end{minted}
       \end{frame}
 
   \section{Un caso real}
     \begin{frame}{Un caso real}
       \begin{itemize}
-        \item Coowry. Empresa dedicada a los pagos a través de ``airtime''
+        \item Coowry. Empresa dedicada a los pagos a través de \textit{airtime}
         \item Cientos de clientes diariamente realizaban pagos a través del API
         \begin{itemize}
           \item El formato de las transacciones no siempre era el mismo
