@@ -8,4 +8,5 @@
 _minted-*/
 *log
 *snm
+*synctex.gz
 .vscode/
