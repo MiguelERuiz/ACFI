@@ -36,7 +36,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Título
 \title[ACFI]{Property-based Testing con PropEr}
-\author{Miguel Emilio Ruiz Nieto}
+\author[M. Ruiz (UCM)]{Miguel Emilio Ruiz Nieto}
 \date{\mydate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Empieza el documento
@@ -47,7 +47,6 @@
 
   \begin{frame}{Contenidos}
     \tableofcontents[hideallsubsections]
-    \todo{Añadir conclusiones}
   \end{frame}
 
   \section{Motivación}
@@ -64,6 +63,7 @@
               [P] ++ sort([X || X <- Xs, P < X]).
       \end{minted}
     \end{frame}
+
     \begin{frame}[fragile]{Motivación. Test unitarios}
       \begin{minted}[fontsize=\small]{erlang}
         -module(sort_lib_eunit).
@@ -84,6 +84,7 @@
                     sort_lib:sort([3,1,4,2])).
       \end{minted}
     \end{frame}
+
     \begin{frame}{Motivación}
       \begin{block}{Preguntas}
         \begin{itemize}
@@ -117,6 +118,7 @@
         \textbf{Property-based testing}
       \end{exampleblock}
     \end{frame}
+
   \section{Definiciones}
     \begin{frame}{Property-based Testing. Definición}
       \begin{itemize}
@@ -126,8 +128,18 @@
         comportamiento del propio sistema
         \item Muy común en lenguajes de programación funcional (i.e Quickcheck)
       \end{itemize}
-      \todo{PBT tiene dos fases 1) generar datos de entrada de manera aleatoria 2) hacer verificaciones de las funciones aplicadas a esos datos  }
     \end{frame}
+
+    \begin{frame}{Property-based Testing. Definición}
+      El proceso de aplicar PBT se divide en dos fases:
+      \begin{itemize}
+        \pause
+        \item Generar datos de entrada de manera aleatoria (Generadores)
+        \pause
+        \item Hacer verificaciones de las funciones aplicadas a esos datos (Propiedades)
+      \end{itemize}
+    \end{frame}
+
     \begin{frame}{Propiedades}
       \begin{itemize}
         \item Son reglas generales que describen el comportamiento de una\\
@@ -136,8 +148,9 @@
         propio programa bajo sus propias condiciones
         \item La salida debe verificar ciertas características deseadas
       \end{itemize}
-      \todo{Revisar si existe ?EXISTS}
+      \unsure{Poner ejemplos de las propiedades ?EXISTS y ?NOT\_EXISTS ??}
     \end{frame}
+
     \begin{frame}{Propiedades}
       Al principio puede resultar no tan trivial como los tests unitarios ya que:
       \begin{itemize}
@@ -149,67 +162,72 @@
         \item Asegura encontrar un mayor número de ``casos esquina'' y bugs\\
         dentro del código
       \end{itemize}
-      \todo{Añadir en conclusiones: Merece la pena usar PBT porque te genera casos de test muy `rápido'}
-      \todo{Añadir en conclusiones: Hay casos en los que puede merecer la pena más hacer test unitarios}
-      \todo{Añadir en conclusiones: La realidad es que no se usa porque está muy centrado en lenguajes funcionales}
     \end{frame}
+
   \section{Erlang}
     \subsection{Historia}
-    \begin{frame}{Erlang}
-      \begin{itemize}
-        \item Lenguaje de programación desarrollado en Ericsson
-        \item Orientado a sistemas distribuidos:
+      \begin{frame}{Erlang}
         \begin{itemize}
-          \item Modelo de actores
-          \item Paso de mensajes
-          \item Tolerancia a fallos
-          \item Alta disponibilidad
-          \item Filosofía ``Let it crash''
+          \item Lenguaje de programación desarrollado en Ericsson
+          \item Orientado a sistemas distribuidos:
+          \begin{itemize}
+            \item Modelo de actores
+            \item Paso de mensajes
+            \item Tolerancia a fallos
+            \item Alta disponibilidad
+            \item Filosofía ``Let it crash''
+          \end{itemize}
         \end{itemize}
-      \end{itemize}
-    \end{frame}
+      \end{frame}
+
     \subsection{Sintaxis}
-    \begin{frame}[fragile]{Sintaxis. Módulos y funciones}
-      \begin{minted}{erlang}
-        -module(sucessions).
-        -export([fib/1]).
+      \begin{frame}[fragile]{Sintaxis. Módulos y funciones}
+        \begin{minted}{erlang}
+          -module(sucessions).
+          -export([fib/1]).
 
-        fib(0) -> 0;
-        fib(1) -> 1;
-        fib(N) -> fib(N-1) + fib(N-2).
-      \end{minted}
-    \end{frame}
+          fib(0) -> 0;
+          fib(1) -> 1;
+          fib(N) -> fib(N-1) + fib(N-2).
+        \end{minted}
+      \end{frame}
 
-    \begin{frame}[fragile]{Sintaxis. Listas}
-      \begin{minted}{erlang}
-        1> [First | TheRest] = [1,2,3,4,5].
-        2> First.
-        1
-        3> TheRest.
-        [2,3,4,5]
-      \end{minted}
-    \end{frame}
-    %%% Tuplas
-    \begin{frame}[fragile]{Sintaxis. Tuplas}
-      \begin{minted}{erlang}
-        4> X = 10, Y = 4.
-        4
-        5> Point = {X,Y}.
-        {10,4}
-        6> PreciseTemperature = {celsius, 23.213, 45}.
-      \end{minted}
-    \end{frame}
-    %%% Pattern Matching??
-    \begin{frame}[fragile]{Sintaxis. Funciones de Orden Superior}
-      \begin{minted}{erlang}
-        7> Add_3 = fun(X) -> X + 3 end.
-        #Fun<erl_eval.7.126501267>
-        8> lists:map(Add_3, [1,2,3]).
-        [4,5,6]
-      \end{minted}
-      \todo{Poner un ejemplo de pattern matching}
-    \end{frame}
-    %%% Paso de mensajes??
+      \begin{frame}[fragile]{Sintaxis. Listas}
+        \begin{minted}{erlang}
+          1> [First | TheRest] = [1,2,3,4,5].
+          2> First.
+          1
+          3> TheRest.
+          [2,3,4,5]
+        \end{minted}
+      \end{frame}
+
+      \begin{frame}[fragile]{Sintaxis. Tuplas}
+        \begin{minted}{erlang}
+          4> X = 10, Y = 4.
+          4
+          5> Point = {X,Y}.
+          {10,4}
+          6> PreciseTemperature = {celsius, 23.213, 45}.
+        \end{minted}
+      \end{frame}
+
+      \begin{frame}[fragile]{Sintaxis. Pattern Matching}
+        \begin{minted}{erlang}
+          is_even(N) when N rem 2 == 0 -> true;
+          is_even(_) -> false.
+        \end{minted}
+      \end{frame}
+
+      \begin{frame}[fragile]{Sintaxis. Funciones de Orden Superior}
+        \begin{minted}{erlang}
+          7> Add_3 = fun(X) -> X + 3 end.
+          #Fun<erl_eval.7.126501267>
+          8> lists:map(Add_3, [1,2,3]).
+          [4,5,6]
+        \end{minted}
+      \end{frame}
+
   \section{PropEr}
     \begin{frame}{PropEr}
       \begin{itemize}
@@ -226,10 +244,9 @@
         \item Estructura de las propiedades
         \item Propiedades sin estado
         \item Propiedades con estado
-        \item Reducción de casos con \mintinline{erlang}{?SHRINK}
+        \item Reducción de contraejemplos con \mintinline{erlang}{?SHRINK}
       \end{itemize}
     \end{frame}
-
 
     \subsection{Generadores}
       \begin{frame}{PropEr. Generadores}
@@ -335,26 +352,16 @@
         \end{minted}
       \end{frame}
 
-    % \subsection{Invariantes}
-    %   \begin{frame}{PropEr. Invariantes}
-    %     \unsure{No sé si quitar esta slide}
-    %     Se dice de aquellos factores que hacen que el sistema no sufra de una\\
-    %     transformación
-
-    %     Algunos ejemplos pueden ser:
-    %     \begin{itemize}
-    %       \item A store cannot sell more items than it has in stock.
-    %     \end{itemize}
-    %   \end{frame}
-    \subsection{Propiedades sin estado}
-      \begin{frame}{PropEr. Propiedades sin estado}
-        \improvement{Qué ejemplo puedo poner aqui}
-      \end{frame}
     \subsection{Propiedades con estado}
       \begin{frame}{PropEr. Propiedades con estado}
-        \improvement{Qué ejemplo puedo poner aqui}
-        \todo{Decir que hasta ahora hemos visto propiedades sin estado}
+        \begin{itemize}
+          \item Hasta ahora los ejemplos que hemos visto eran \textit{sin estado}
+          \item Nos interesa verificar que aquellas aplicaciones que tras realizar
+          una operación y cambian su estado mantienen la consistencia
+        \end{itemize}
+
         \todo{Poner de ejemplo de propiedad con estado Persona puede conducir}
+        \unsure{Mirar el ejemplo del videoclub con A. Riesco y valorar}
       \end{frame}
     \subsection{?SHRINK}
       \begin{frame}{PropEr. Macro ?SHRINK}
@@ -374,18 +381,96 @@
 
   \section{Un caso real}
     \begin{frame}{Un caso real}
-      \improvement{Hablar sobre este ``caso real'' ??}
       \begin{itemize}
-        \item Baleen. Biblioteca de validadores escritos en Erlang
-        \item El caso de Coowry
+        \item Coowry. Empresa dedicada a los pagos a través de ``airtime''
+        \item Cientos de clientes diariamente realizaban pagos a través del API
+        \begin{itemize}
+          \item El formato de las transacciones no siempre era el mismo
+          \item Caídas de servicio
+        \end{itemize}
+        \pause
+        \begin{exampleblock}{La solución}
+          Baleen. Biblioteca de validadores escritos en Erlang
+        \end{exampleblock}
       \end{itemize}
     \end{frame}
 
     \begin{frame}[fragile]{Un caso real}
       \begin{minted}[fontsize=\small]{erlang}
-        -type validator(A, B) -> (fun(A) -> result(B) end).
-        -type result(A) -> {ok, A} | {error, binary()}.
+        -type validator(A, B) :: (fun(A) -> result(B) end).
+        -type result(A) :: {ok, A} | {error, binary()}.
+        -type str() :: string() | binary().
+
+        -spec validate(validator(A,B), A) -> result(B).
+        %% @doc Validates data with a validator.
+        %% `X' is the term to be validated with
+        %% validator `V'.
+        validate(V, X) -> V(X).
       \end{minted}
+    \end{frame}
+
+    \begin{frame}[fragile]{Baleen. Validadores}
+      \begin{minted}[fontsize=\small]{erlang}
+        -spec valid() -> validator(_,_).
+        %% @doc Returns a validator that always validates.
+        valid() ->
+          fun(X) -> {ok, X} end.
+      \end{minted}
+    \end{frame}
+
+    \begin{frame}[fragile]{Baleen. Validadores}
+      \begin{minted}[fontsize=\footnotesize]{erlang}
+        -spec to_integer() -> validator(str(), integer()).
+        %% @doc Returns a validator that takes a `Value'
+        %% and tries to cast to integer. If the cast success,
+        %% `{ok, Integer}' is returned, otherwise,
+        %% `{error, <<"Value is not an integer">>}' is returned.
+        to_integer() ->
+          fun(Value) when is_binary(Value)->
+              try erlang:binary_to_integer(Value) of
+                Integer -> {ok, Integer}
+              catch
+                _:_ -> {error, format("~p is not an integer", [Value])}
+              end;
+             (Value) ->
+              case io_lib:fread("~d",Value) of
+                {ok, [Integer], []} -> {ok, Integer};
+                _ -> {error, format("~p is not an integer", [Value])}
+              end
+          end.
+      \end{minted}
+    \end{frame}
+
+    \begin{frame}[fragile]{Baleen. Tests en PropEr}
+      \begin{minted}[fontsize=\footnotesize]{erlang}
+        prop_valid() ->
+          ?FORALL(Data, term(),
+            begin
+              {ok, Data} == baleen:validate(valid(), Data)
+            end).
+
+        prop_is_integer_with_integer_strings() ->
+        ?FORALL(Integer, integer(),
+                {ok, Integer} == baleen:validate(to_integer(),
+                                          integer_to_list(Integer))).
+
+        prop_is_integer_with_integer_binaries() ->
+          ?FORALL(Integer, integer(),
+                  {ok, Integer} == baleen:validate(to_integer(),
+                                          integer_to_binary(Integer))).
+      \end{minted}
+    \end{frame}
+
+  \section{Conclusiones}
+    \begin{frame}{Conclusiones}
+      \begin{itemize}
+        \item Merece la pena usar PBT porque te genera casos de test muy `rápido'
+        \item No obstante,
+        \begin{itemize}
+          \item Hay casos en los que puede merecer la pena más hacer test unitarios
+          \item Se usa poco dado que está muy centrado en lenguajes funcionales
+        \end{itemize}
+      \end{itemize}
     \end{frame}
 
   \section{Bibliografía}
