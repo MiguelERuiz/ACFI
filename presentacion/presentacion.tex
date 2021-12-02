@@ -25,13 +25,15 @@
 \newcommandx{\improvement}[2][1=]{\todo[linecolor=orange,backgroundcolor=orange!25,bordercolor=orange,#1]{#2}}
 \newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
 \newcommand{\mydate}{\formatdate{3}{12}{2021}}
+
+\graphicspath{ {images/} }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Beamer
 \usetheme{Madrid}
 \AtBeginEnvironment{minted}{\fontsize{12}{12}\selectfont}
-% \setbeameroption{show notes on second screen=right}
+\setbeameroption{show notes on second screen=right}
 % \setbeameroption{show only notes}
-% \setbeameroption{show notes}
+\setbeameroption{show notes}
 % \setbeamertemplate{note page}[default]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Título
@@ -148,7 +150,6 @@
         propio programa bajo sus propias condiciones
         \item La salida debe verificar ciertas características deseadas
       \end{itemize}
-      \unsure{Poner ejemplos de las propiedades ?EXISTS y ?NOT\_EXISTS ??}
     \end{frame}
 
     \begin{frame}{Propiedades}
@@ -352,17 +353,73 @@
         \end{minted}
       \end{frame}
 
+      \begin{frame}[fragile]{PropEr. Estructura de las propiedades. Ejemplos}
+        \begin{minted}[fontsize=\footnotesize]{erlang}
+          prop_exists_already_sorted() ->
+            ?EXISTS(L, list(integer()), L =:= sort_lib:sort(L)).
+
+          prop_not_exists_different_sorted_after_double_sort() ->
+            ?NOT_EXISTS(L, list(integer()),
+              sort_lib:sort(L) =/= sort_lib:sort(sort_lib:sort(L))).
+
+        \end{minted}
+      \end{frame}
+
     \subsection{Propiedades con estado}
       \begin{frame}{PropEr. Propiedades con estado}
         \begin{itemize}
           \item Hasta ahora los ejemplos que hemos visto eran \textit{sin estado}
           \item Nos interesa verificar que aquellas aplicaciones que tras realizar
           una operación y cambian su estado mantienen la consistencia
+          \item Ideal para los behaviours \mintinline{erlang}{gen_server} y
+          \mintinline{erlang}{gen_statem}
         \end{itemize}
-
-        \todo{Poner de ejemplo de propiedad con estado Persona puede conducir}
-        \unsure{Mirar el ejemplo del videoclub con A. Riesco y valorar}
       \end{frame}
+
+      \begin{frame}{PropEr. Propiedades con estado}
+        \begin{itemize}
+          \item Los tests con estado se dividen en dos fases:
+          \begin{itemize}
+            \item Fase abstracta: se crea el escenario de test (Modelo)
+            \item Fase real: El sistema donde se aplican los comandos\\
+            generados para dicho modelo
+          \end{itemize}
+        \end{itemize}
+      \end{frame}
+
+      \begin{frame}[plain]{PropEr. Propiedades con estado}
+        Fase abstracta
+
+        \includegraphics[width=\textwidth]{stateful-symbolic.png}
+        \note{In the abstract mode, a command generator creates a symbolic\\
+        call with its arguments based on an initial model state. PropEr\\
+        then applies the preconditions to that command to know if it would\\
+        be valid. If the validation fails, PropEr tries again with a new\\
+        generated command. Once a suitable command is found, we can move\\
+        forward. The next\_state function takes the command and the current\\
+        state, and has to return a new state data structure. Then the whole\\
+        process is repeated over and over, until PropEr decides it has enough\\
+        commands.}
+
+      \end{frame}
+
+      \begin{frame}{PropEr. Propiedades con estado}
+        Fase real
+        \includegraphics[width=\textwidth]{stateful-actual-bw.png}
+        \note{The execution is repeated, except that now, at every step of the way,\\
+        PropEr also runs the commands against the real system. The preconditions\\
+        are still reevaluated to ensure consistency so that if a generated precondition\\
+        that used to work suddenly fails, the entire test also fails. The next symbolic\\
+        call in the list is executed, with its result stored. The postcondition is then\\
+        evaluated, and if it succeeds, the state transition for the command is applied\\
+        to the state and the next command can be processed.
+
+        In case of a failure, shrinking is done by modifying the command sequence as\\
+        required, mostly by removing operations and seeing if things still work.\\
+        Preconditions will be used by the framework to make sure that the various\\
+        attempts are valid.}
+      \end{frame}
+
     \subsection{Shrinking}
       \begin{frame}{PropEr. Reducción de contraejemplos}
         \begin{itemize}
@@ -408,7 +465,7 @@
       \end{itemize}
     \end{frame}
 
-    \begin{frame}[fragile]{Un caso real}
+    \begin{frame}[fragile]{Baleen. Tipos}
       \begin{minted}[fontsize=\small]{erlang}
         -type validator(A, B) :: (fun(A) -> result(B) end).
         -type result(A) :: {ok, A} | {error, binary()}.
@@ -477,10 +534,12 @@
   \section{Conclusiones}
     \begin{frame}{Conclusiones}
       \begin{itemize}
-        \item Merece la pena usar PBT porque te genera casos de test muy `rápido'
+        \item Merece la pena usar PBT porque es capaz de generar casos de test muy `rápido'
         \item No obstante,
         \begin{itemize}
           \item Hay casos en los que puede merecer la pena más hacer test unitarios
+          \item A veces cuesta más definir las propiedades que el desarrollo
+          pedido.
           \item Se usa poco dado que está muy centrado en lenguajes funcionales
         \end{itemize}
       \end{itemize}
