@@ -31,10 +31,11 @@
 % Beamer
 \usetheme{Madrid}
 \AtBeginEnvironment{minted}{\fontsize{12}{12}\selectfont}
-\setbeameroption{show notes on second screen=right}
+% \setbeameroption{show notes on second screen=right}
 % \setbeameroption{show only notes}
-\setbeameroption{show notes}
+% \setbeameroption{show notes}
 % \setbeamertemplate{note page}[default]
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Título
 \title[ACFI]{Property-based Testing con PropEr}
@@ -252,7 +253,7 @@
     \subsection{Generadores}
       \begin{frame}{PropEr. Generadores}
         \begin{itemize}
-          \item Funciones que \textit{generan} entradas de una manera ``aleatoria''
+          \item Funciones que \textit{generan} entradas de manera ``aleatoria''
           \item Proporcionan datos en base al tipo del generador y a los filtros dados
           \item Pueden ser:
           \begin{itemize}
@@ -388,9 +389,10 @@
       \end{frame}
 
       \begin{frame}[plain]{PropEr. Propiedades con estado}
-        Fase abstracta
-
-        \includegraphics[width=\textwidth]{stateful-symbolic.png}
+        \begin{figure}
+          \includegraphics[width=\textwidth]{stateful-symbolic.png}
+          \caption{Fase abstracta}
+        \end{figure}
         \note{In the abstract mode, a command generator creates a symbolic\\
         call with its arguments based on an initial model state. PropEr\\
         then applies the preconditions to that command to know if it would\\
@@ -400,12 +402,13 @@
         state, and has to return a new state data structure. Then the whole\\
         process is repeated over and over, until PropEr decides it has enough\\
         commands.}
-
       \end{frame}
 
       \begin{frame}{PropEr. Propiedades con estado}
-        Fase real
-        \includegraphics[width=\textwidth]{stateful-actual-bw.png}
+        \begin{figure}
+          \includegraphics[width=\textwidth]{stateful-actual-bw.png}
+          \caption{Fase real}
+        \end{figure}
         \note{The execution is repeated, except that now, at every step of the way,\\
         PropEr also runs the commands against the real system. The preconditions\\
         are still reevaluated to ensure consistency so that if a generated precondition\\
@@ -431,8 +434,8 @@
       \end{frame}
 
       \begin{frame}[fragile]{PropEr. Reducción de contraejemplos}
-        \begin{minted}{shell}
-          ~ $ rebar3 proper
+        \begin{minted}[fontsize=\small]{shell}
+          ~/sort_lib $ rebar3 proper
           ===> Verifying dependencies...
           ===> Compiling sort_lib
           ===> Testing prop_sort_lib:prop_same_length()
@@ -465,7 +468,7 @@
       \end{itemize}
     \end{frame}
 
-    \begin{frame}[fragile]{Baleen. Tipos}
+    \begin{frame}[fragile]{Baleen. Tipos }
       \begin{minted}[fontsize=\small]{erlang}
         -type validator(A, B) :: (fun(A) -> result(B) end).
         -type result(A) :: {ok, A} | {error, binary()}.
@@ -534,12 +537,12 @@
   \section{Conclusiones}
     \begin{frame}{Conclusiones}
       \begin{itemize}
-        \item Merece la pena usar PBT porque es capaz de generar casos de test muy `rápido'
+        \item Merece la pena usar PBT porque es capaz de generar casos de test muy ``rápido''
         \item No obstante,
         \begin{itemize}
           \item Hay casos en los que puede merecer la pena más hacer test unitarios
           \item A veces cuesta más definir las propiedades que el desarrollo
-          pedido.
+          pedido
           \item Se usa poco dado que está muy centrado en lenguajes funcionales
         \end{itemize}
       \end{itemize}
